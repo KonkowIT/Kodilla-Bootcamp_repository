@@ -1,0 +1,1 @@
+# konrad-kowalski-repository
