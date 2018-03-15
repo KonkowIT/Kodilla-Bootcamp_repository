@@ -16,13 +16,21 @@ public class TestingMain {
             System.out.println("Error!");
         }
 
-       Calculator add = new Calculator(3, 4);
+       Calculator calc = new Calculator(3, 4);
 
-        int a = add.getA();
-        int b = add.getB();
+        System.out.println("suma " + calc.getA() + " i " + calc.getB() + " to " + calc.add(calc.getA(), calc.getB()));
+        System.out.println("różnica " + calc.getA() + " i " + calc.getB() + " to " + calc.substract(calc.getA(), calc.getB()));
 
-        System.out.println("suma " + a + " i " + b + " to " + (a + b));
-        System.out.println("różnica " + a + " i " + b + " to " + (a - b));
+        int resultA = calc.getA();
+        int resultB = calc.getB();
+
+
+        if (resultA == 3 && resultB == 4){
+            System.out.println("Test ok");
+        }
+        else {
+            System.out.println("Error");
+        }
     }
 }
 
