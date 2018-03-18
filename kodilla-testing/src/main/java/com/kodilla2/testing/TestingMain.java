@@ -25,15 +25,8 @@ public class TestingMain {
         int resultB = calc.getB();
 
 
-        if (calc.add(calc.getA(), calc.getB()) == 7){
-            System.out.println("Test dodawania ok");
-        }
-        else {
-            System.out.println("Error");
-        }
-
-        if (calc.substract(calc.getA(), calc.getB()) == -1){
-            System.out.println("Test odejmowania ok");
+        if ((calc.add(calc.getA(), calc.getB()) == 7) && (calc.substract(calc.getA(), calc.getB()) == -1)){
+            System.out.println("Test ok");
         }
         else {
             System.out.println("Error");
