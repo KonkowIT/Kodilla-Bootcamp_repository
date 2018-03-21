@@ -1,11 +1,12 @@
 package com.kodilla.testing.forum.statistics;
 
 public class CalculatedStatistics {
-    calculateAdvStatistics(Statistics statistics){
+
+    public calculateAdvStatistics(Statistics statistics){
         //metoda obliczająca dane z kom, zapisauje dane w polach klasy
     }
 
-    showStatistics(){
+    public showStatistics(){
         //metoda wyświetlająca zapamiętane statystyki
     }
 }

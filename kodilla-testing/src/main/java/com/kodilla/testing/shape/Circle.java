@@ -3,21 +3,19 @@ package com.kodilla.testing.shape;
 import java.util.Objects;
 
 public class Circle implements Shape{
-    double pi = 3.14;
+
     double radius;
-    String nameC;
     static String circle = "Circle";
 
     public Circle(double radius) {
         this.radius = radius;
-        this.nameC = circle;
     }
 
     public double getRadius() {
         return radius;
     }
 
-    public static String getCircle() {
+    public String getCircle() {
         return circle;
     }
 
@@ -31,19 +29,12 @@ public class Circle implements Shape{
 
     @Override
     public int hashCode() {
-
         return Objects.hash(radius);
     }
 
-    public double areaCircle = pi * (radius * radius);
-
     @Override
-    public String getShapeName() {
+    public String getShapeName(String circle) {
         return getCircle();
     }
 
-    @Override
-    public Double getField(double area) {
-        return areaCircle;
-    }
 }

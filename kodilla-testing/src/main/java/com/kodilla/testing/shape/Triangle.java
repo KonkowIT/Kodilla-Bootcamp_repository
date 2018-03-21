@@ -1,12 +1,12 @@
 package com.kodilla.testing.shape;
 
 import java.util.Objects;
-import com.kodilla.testing.shape.Shape;
 
 public class Triangle implements Shape{
-    double height;
-    double longestSide;
-    static String triangle = "Triangle";
+
+    private double height;
+    private double longestSide;
+    private static String triangle = "Triangle";
 
     public Triangle(double height, double longestSide) {
         this.height = height;
@@ -21,7 +21,7 @@ public class Triangle implements Shape{
         return longestSide;
     }
 
-    public static String getTriangle() {
+    public String getTriangle() {
         return triangle;
     }
 
@@ -36,19 +36,7 @@ public class Triangle implements Shape{
 
     @Override
     public int hashCode() {
-
         return Objects.hash(height, longestSide);
     }
 
-    public double areaTriangle = 0.5 * (longestSide * height);
-
-    @Override
-    public String getShapeName() {
-        return getTriangle();
-    }
-
-    @Override
-    public Double getField(double area) {
-        return areaTriangle;
-    }
 }
