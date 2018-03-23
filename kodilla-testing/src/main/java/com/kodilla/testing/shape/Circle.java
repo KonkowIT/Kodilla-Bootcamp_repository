@@ -4,19 +4,11 @@ import java.util.Objects;
 
 public class Circle implements Shape{
 
-    double radius;
-    static String circle = "Circle";
+    private double radius;
+    private String circle = "Circle";
 
     public Circle(double radius) {
         this.radius = radius;
-    }
-
-    public double getRadius() {
-        return radius;
-    }
-
-    public String getCircle() {
-        return circle;
     }
 
     @Override
@@ -33,8 +25,12 @@ public class Circle implements Shape{
     }
 
     @Override
-    public String getShapeName(String circle) {
-        return getCircle();
+    public String getShapeName() {
+        return circle;
     }
 
+    @Override
+    public double getField() {
+        return Math.PI * (radius * radius);
+    }
 }

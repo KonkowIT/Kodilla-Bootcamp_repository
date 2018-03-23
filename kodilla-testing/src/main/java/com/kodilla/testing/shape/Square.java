@@ -5,18 +5,10 @@ import java.util.Objects;
 public class Square implements Shape{
 
     private double side;
-    private static String square = "Square";
+    private String square = "Square";
 
     public Square(double side) {
         this.side = side;
-    }
-
-    public double getSide() {
-        return side;
-    }
-
-    public String getSquare() {
-        return square;
     }
 
     @Override
@@ -33,10 +25,13 @@ public class Square implements Shape{
         return Objects.hash(side);
     }
 
-    public double areaSquare = side * side;
+    @Override
+    public String getShapeName() {
+        return square;
+    }
 
     @Override
-    public String getShapeName(String circle) {
-        return getSquare();
+    public double getField() {
+        return side * side;
     }
 }

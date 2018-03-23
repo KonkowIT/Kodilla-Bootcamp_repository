@@ -6,23 +6,11 @@ public class Triangle implements Shape{
 
     private double height;
     private double longestSide;
-    private static String triangle = "Triangle";
+    private String triangle = "Triangle";
 
     public Triangle(double height, double longestSide) {
         this.height = height;
         this.longestSide = longestSide;
-    }
-
-    public double getHeight() {
-        return height;
-    }
-
-    public double getLongestSide() {
-        return longestSide;
-    }
-
-    public String getTriangle() {
-        return triangle;
     }
 
     @Override
@@ -37,6 +25,16 @@ public class Triangle implements Shape{
     @Override
     public int hashCode() {
         return Objects.hash(height, longestSide);
+    }
+
+    @Override
+    public String getShapeName() {
+        return triangle;
+    }
+
+    @Override
+    public double getField() {
+        return 0.5 * (height * longestSide);
     }
 
 }
