@@ -64,10 +64,9 @@ public class ShapeCollectorTestSuite {
         ShapeCollector shapeCollector = new ShapeCollector();
         Triangle triangle = new Triangle(10, 15);
         shapeCollector.addFigure(triangle);
-        String resultName = "Triangle";
         //when
         String result = shapeCollector.showFigures();
         //then
-        Assert.assertEquals(resultName, result);
+        Assert.assertEquals("Triangle", result);
     }
 }
