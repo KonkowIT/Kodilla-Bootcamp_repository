@@ -1,64 +1,46 @@
 package com.kodilla.testing.forum.statistics;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CalculatedStatistics {
-/*
-    double avgPostPerUser;    //średnia ilość postów na użytkownika
-    double avgCommentPerUser; //średnia ilość komentarzy na użytkownika
-    double avgCommentPerPost; //średnia ilość komentarzy na post
 
-    public Statistics calculateAdvStatistics(Statistics statistics){
-        Statistics statistics1 = new Statistics() {
+    //klasa testowana
 
-            @Override
-            public List<String> usersNames() {
-                return null;
-            }
+    Statistics statistics;
 
-            @Override
-            public List<String> userNames() {
-                List<String> stubUsersNames = new ArrayList<String>();
-
-                //dummy data
-                stubUsersNames.add("xyc");
-                stubUsersNames.add("skd");
-                stubUsersNames.add("dls");
-                stubUsersNames.add("doe");
-                stubUsersNames.add("foe");
-                stubUsersNames.add("fjg");
-
-                return stubUsersNames;
-            }
-
-            @Override
-            public int postsCount() {
-                return ;
-            }
-
-            @Override
-            public int commentCount() {
-                return 3;
-            }
-        }
-        //metoda obliczająca wartości (te co wyżej), zapisauje dane w polach klasy
+    public int avgPostPerUser(){
+        int avgPost;
+        avgPost = statistics.postCount() / statistics.usersNames().size();
+        return avgPost;
     }
 
-    public void showStatistics(){
-        //metoda wyświetlająca zapamiętane statystyki
+    public int avgCommentPerUser() {
+        int avgComment;
+        avgComment = statistics.postCount() / statistics.usersNames().size();
+        return avgComment;
     }
 
-*/
+    public int avgCommentPerPost() {
+        int avgCommPerPost;
+        avgCommPerPost = statistics.commentsCount() / statistics.usersNames().size();
+        return avgCommPerPost;
+    }
+
+    Map<Integer, Integer> listOfUserNames = new HashMap<Integer,Integer>();
+    Map<Integer, Integer> listOfPosts = new HashMap<Integer,Integer>();
+    Map<Integer, Integer> listOfComments = new HashMap<Integer,Integer>();
+    Map<Integer, Integer> listOfAvgPostPerUser = new HashMap<Integer,Integer>();
+    Map<Integer, Integer> listOfAvgCommentPerUser = new HashMap<Integer,Integer>();
+    Map<Integer, Integer> listOfAvgCommetnPerPost = new HashMap<Integer,Integer>();
+    int n = 0;
+
+    public void calculatedAdvStatistics() {
+        listOfUserNames.put(n++, statistics.usersNames().size());
+        listOfPosts.put(n++, statistics.postCount());
+        listOfComments.put(n++, statistics.commentsCount());
+        listOfAvgPostPerUser.put(n++, avgPostPerUser());
+        listOfAvgCommentPerUser.put(n++, avgCommentPerUser());
+        listOfAvgCommetnPerPost.put(n++, avgCommentPerPost());
+    }
 }
-
-/*
-Klassa obliczająca:
-
-liczbę użytkowników,
-liczbę postów,
-liczbę komentarzy,
-średnią liczbę postów na użytkownika,
-średnią liczbę komentarzy na użytkownika,
-średnią liczbę komentarzy na post.
-*/
