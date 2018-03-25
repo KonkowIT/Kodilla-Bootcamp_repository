@@ -101,18 +101,17 @@ public class BookDirectoryTestSuite {
         Book bookMock = mock(Book.class);
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
 
-        //mock - lista książek
         List<Book> listBooksOfUserName = new ArrayList<Book>();
         Book book = new Book("Title", "Author", 1970);
         listBooksOfUserName.add(book);
-        when(libraryDatabaseMock.listBooksInHandsOf(libraryUserMock)).thenReturn(listBooksOfUserName.get(Book));
+        when(libraryDatabaseMock.listBooksInHandsOf(libraryUserMock)).thenReturn(listBooksOfUserName);
 
         LibraryUser libraryUser = new LibraryUser("Adam", "Mickiewicz", "00112212345");
         when(libraryUserMock.getFirstname()).thenReturn(libraryUser.firstname);
 
         //when
-        List<Book> result = bookLibrary.listBooksInHandsOf(libraryUserMock, 1);
+        int result = bookLibrary.listBooksInHandsOf(libraryUserMock).size();
         //then
-        assertEquals("Title", result);
+        assertEquals(listBooksOfUserName.size(), result);
     }
 }

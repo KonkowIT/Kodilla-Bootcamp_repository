@@ -23,13 +23,12 @@ public class BookLibrary {
         return bookList;
     }
 
-    public List<Book> listBooksInHandsOf(LibraryUser libraryUser, int booksNumber){
-        List<Book> resultListBooksInHandsOf = new ArrayList<Book>();
-        for(int i = 0; booksNumber > i; i++){
-            Book book = new Book("Title", "Author", 1970 + i);
-            resultListBooksInHandsOf.add(book);
-        }
-        return resultListBooksInHandsOf;
+    public List<Book> listBooksInHandsOf(LibraryUser libraryUser){
+        libraryDatabase.listBooksInHandsOf(libraryUser);
+        List<Book> listBooksInHandsOf = new ArrayList<Book>();
+        Book book = new Book("Title", "Author", 1970);
+        listBooksInHandsOf.add(book);
+        return listBooksInHandsOf;
     }
 
     public boolean rentABook(LibraryUser libraryUser, Book book){
