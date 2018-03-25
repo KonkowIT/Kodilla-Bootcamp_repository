@@ -28,7 +28,7 @@ public class BookLibrary {
         List<Book> listBooksInHandsOf = new ArrayList<Book>();
         Book book = new Book("Title", "Author", 1970);
         listBooksInHandsOf.add(book);
-        return listBooksInHandsOf;
+        return libraryDatabase.listBooksInHandsOf(libraryUser);
     }
 
     public boolean rentABook(LibraryUser libraryUser, Book book){
