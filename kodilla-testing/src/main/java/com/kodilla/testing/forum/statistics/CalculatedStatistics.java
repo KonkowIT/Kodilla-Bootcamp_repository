@@ -37,12 +37,12 @@ public class CalculatedStatistics {
         return avgCommentPerPost;
     }
 
-    public void calculatedAdvStatistics() {
+    public void calculatedAdvStatistics(int n, int m) {
         resultOfUserNamesNumber = statistics.usersNames().size();
         resultOfPostCount = statistics.postCount();
         resultOfCommentCount = statistics.commentsCount();
-        resulOfGetAvgPostPerUser = getAvgPostPerUser(10);
-        resultOfGetAvgCommentPerUser = getAvgCommentPerUser(10);
-        resultOfGetAvgCommentPerPost = getAvgCommentPerPost(10,2);
+        resulOfGetAvgPostPerUser = getAvgPostPerUser(n);
+        resultOfGetAvgCommentPerUser = getAvgCommentPerUser(n);
+        resultOfGetAvgCommentPerPost = getAvgCommentPerPost(n, m);
     }
 }

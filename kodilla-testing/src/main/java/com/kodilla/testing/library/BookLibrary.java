@@ -12,10 +12,27 @@ public class BookLibrary {
 
     public List<Book> listBooksWithCondition(String titleFragment){
         List<Book> bookList = new ArrayList<Book>();
-        Book book = new Book("The book title", "The book author", 2000);
-        bookList.add(book);
+        if(titleFragment.length() < 3) return bookList;
 
-        // NA CHWILE zwracamy listę składającą się z jednej książki
+        List<Book> resultList = libraryDatabase.listBooksWithCondition(titleFragment);
+        if(resultList.size() > 20) return bookList;
+
+        bookList = resultList;
         return bookList;
     }
-}
+/*
+    public List<Book> listBooksInHandsOf(LibraryUser libraryUser){
+
+        return
+    }
+
+    public boolean rentABook(LibraryUser libraryUser, Book book){
+
+        return
+    }
+
+    public int returnBooks(LibraryUser libraryUser){
+
+        return
+    }
+*/}
