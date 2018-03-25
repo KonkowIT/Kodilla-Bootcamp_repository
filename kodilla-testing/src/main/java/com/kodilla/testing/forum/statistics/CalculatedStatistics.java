@@ -9,9 +9,15 @@ public class CalculatedStatistics {
 
     //klasa testowana
 
-    int avgPostPerUser;
-    int avgCommentPerUser;
-    int avgCommentPerPost;
+    private int avgPostPerUser;
+    private int avgCommentPerUser;
+    private int avgCommentPerPost;
+    private int resultOfUserNamesNumber;
+    private int resultOfPostCount;
+    private int resultOfCommentCount;
+    private int resulOfGetAvgPostPerUser;
+    private int resultOfGetAvgCommentPerUser;
+    private int resultOfGetAvgCommentPerPost;
 
     Statistics statistics;
 
@@ -32,11 +38,11 @@ public class CalculatedStatistics {
     }
 
     public void calculatedAdvStatistics() {
-        int resultOfUserNamesNumber = statistics.usersNames().size();
-        int resultOfPostCount = statistics.postCount();
-        int resultOfCommentCount = statistics.commentsCount();
-        int resulOfGetAvgPostPerUser = getAvgPostPerUser(10);
-        int resultOfGetAvgCommentPerUser = getAvgCommentPerUser(10);
-        int resultOfGetAvgCommentPerPost = getAvgCommentPerPost(10,2);
+        resultOfUserNamesNumber = statistics.usersNames().size();
+        resultOfPostCount = statistics.postCount();
+        resultOfCommentCount = statistics.commentsCount();
+        resulOfGetAvgPostPerUser = getAvgPostPerUser(10);
+        resultOfGetAvgCommentPerUser = getAvgCommentPerUser(10);
+        resultOfGetAvgCommentPerPost = getAvgCommentPerPost(10,2);
     }
 }
