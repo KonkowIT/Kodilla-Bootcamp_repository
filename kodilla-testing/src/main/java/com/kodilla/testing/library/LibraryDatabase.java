@@ -14,7 +14,6 @@ public interface LibraryDatabase {
     //zwraca false jeżeli książki nie moża wypożyczyć
     boolean rentABook(LibraryUser libraryUser, Book book);
 
-    //zwraca wszystkie książki wypożyczone przez libraryUser do biblioteki
     //zwraca ilość zwróconych książek
     int returnBooks(LibraryUser libraryUser);
 }

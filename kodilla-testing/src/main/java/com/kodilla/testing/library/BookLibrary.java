@@ -1,7 +1,9 @@
 package com.kodilla.testing.library;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class BookLibrary {
     LibraryDatabase libraryDatabase;
@@ -20,19 +22,35 @@ public class BookLibrary {
         bookList = resultList;
         return bookList;
     }
-/*
-    public List<Book> listBooksInHandsOf(LibraryUser libraryUser){
 
-        return
+    public List<Book> listBooksInHandsOf(LibraryUser libraryUser, int booksNumber){
+        List<Book> resultListBooksInHandsOf = new ArrayList<Book>();
+        for(int i = 0; booksNumber > i; i++){
+            Book book = new Book("Title", "Author", 1970 + i);
+            resultListBooksInHandsOf.add(book);
+        }
+        return resultListBooksInHandsOf;
     }
 
     public boolean rentABook(LibraryUser libraryUser, Book book){
+        boolean result;
+        Map<LibraryUser, Book> rentedBooks = new HashMap<LibraryUser, Book>();
+        rentedBooks.put(libraryUser, book);
 
-        return
+        if(rentedBooks.containsValue(book)){result = false;}
+        else{result = true;}
+
+        return result;
     }
 
     public int returnBooks(LibraryUser libraryUser){
+        int result;
+        Book book1 = new Book("Title", "Author", 1970);
+        Map<LibraryUser, Book> booksOfUser = new HashMap<LibraryUser, Book>();
+        booksOfUser.put(libraryUser, book1);
 
-        return
+        result = booksOfUser.size();
+
+        return result;
     }
-*/}
+}
