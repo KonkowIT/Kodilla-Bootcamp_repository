@@ -18,8 +18,9 @@ public class StatisticsTest {
         Statistics statistics = new StatisticsStub();
         CalculatedStatistics calculatedStatistics = new CalculatedStatistics();
         //when
-        double result = calculatedStatistics.avgPostPerUser();
+        double result = calculatedStatistics.getAvgPostPerUser(10);
         //then
         Assert.assertEquals(10.0, result, 1.0);
     }
+
 }

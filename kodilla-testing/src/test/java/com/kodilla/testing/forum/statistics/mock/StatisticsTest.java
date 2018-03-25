@@ -32,7 +32,7 @@ public class StatisticsTest {
         when(statisticsMock.usersNames()).thenReturn(stubUserNames);
 
         //when
-        int result = calculatedStatisticsMock.avgPostPerUser();
+        int result = calculatedStatisticsMock.getAvgPostPerUser(1000);
 
         //then
         Assert.assertEquals(10, result, 1);
@@ -55,7 +55,7 @@ public class StatisticsTest {
         when(statisticsMock.usersNames()).thenReturn(stubUserNames);
 
         //when
-        int result = calculatedStatisticsMock.avgCommentPerUser();
+        int result = calculatedStatisticsMock.getAvgCommentPerUser(10);
 
         //then
         Assert.assertEquals(0.1, result, 0.1);
@@ -74,7 +74,7 @@ public class StatisticsTest {
         when(statisticsMock.postCount()).thenReturn(postCount);
 
         //when
-        int result = calculatedStatisticsMock.avgCommentPerPost();
+        int result = calculatedStatisticsMock.getAvgCommentPerPost(1000, 10);
 
         //then
         Assert.assertEquals(0.01, result, 0.1);

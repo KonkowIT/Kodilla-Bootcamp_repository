@@ -1,46 +1,42 @@
 package com.kodilla.testing.forum.statistics;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class CalculatedStatistics {
 
     //klasa testowana
 
+    int avgPostPerUser;
+    int avgCommentPerUser;
+    int avgCommentPerPost;
+
     Statistics statistics;
 
-    public int avgPostPerUser(){
-        int avgPost;
-        avgPost = statistics.postCount() / statistics.usersNames().size();
-        return avgPost;
+    public int getAvgPostPerUser(int postCount){
+        avgPostPerUser = postCount / statistics.usersNames().size();
+        return avgPostPerUser;
     }
 
-    public int avgCommentPerUser() {
-        int avgComment;
-        avgComment = statistics.postCount() / statistics.usersNames().size();
-        return avgComment;
+    public int getAvgCommentPerUser(int commentsCount){
+
+        avgCommentPerUser = commentsCount / statistics.usersNames().size();
+        return avgCommentPerUser;
     }
 
-    public int avgCommentPerPost() {
-        int avgCommPerPost;
-        avgCommPerPost = statistics.commentsCount() / statistics.usersNames().size();
-        return avgCommPerPost;
+    public int getAvgCommentPerPost(int postCount, int commentsCount) {
+        avgCommentPerPost = commentsCount / postCount;
+        return avgCommentPerPost;
     }
-
-    Map<Integer, Integer> listOfUserNames = new HashMap<Integer,Integer>();
-    Map<Integer, Integer> listOfPosts = new HashMap<Integer,Integer>();
-    Map<Integer, Integer> listOfComments = new HashMap<Integer,Integer>();
-    Map<Integer, Integer> listOfAvgPostPerUser = new HashMap<Integer,Integer>();
-    Map<Integer, Integer> listOfAvgCommentPerUser = new HashMap<Integer,Integer>();
-    Map<Integer, Integer> listOfAvgCommetnPerPost = new HashMap<Integer,Integer>();
-    int n = 0;
 
     public void calculatedAdvStatistics() {
-        listOfUserNames.put(n++, statistics.usersNames().size());
-        listOfPosts.put(n++, statistics.postCount());
-        listOfComments.put(n++, statistics.commentsCount());
-        listOfAvgPostPerUser.put(n++, avgPostPerUser());
-        listOfAvgCommentPerUser.put(n++, avgCommentPerUser());
-        listOfAvgCommetnPerPost.put(n++, avgCommentPerPost());
+        int resultOfUserNamesNumber = statistics.usersNames().size();
+        int resultOfPostCount = statistics.postCount();
+        int resultOfCommentCount = statistics.commentsCount();
+        int resulOfGetAvgPostPerUser = getAvgPostPerUser(10);
+        int resultOfGetAvgCommentPerUser = getAvgCommentPerUser(10);
+        int resultOfGetAvgCommentPerPost = getAvgCommentPerPost(10,2);
     }
 }
