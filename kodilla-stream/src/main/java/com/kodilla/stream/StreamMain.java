@@ -24,9 +24,9 @@ public class StreamMain {
 
         PoemBeautifier poemBeautifier = new PoemBeautifier();
 
-        poemBeautifier.beautify("House", DecorateMethods::addAtBegining);
-        poemBeautifier.beautify("House", DecorateMethods::addAtEnd);
-        poemBeautifier.beautify("House", DecorateMethods::toUpperCase);
-        poemBeautifier.beautify("House", DecorateMethods::toLowerCase);
+        poemBeautifier.beautify("My House", DecorateMethods::addAtBegining);
+        poemBeautifier.beautify("My House", DecorateMethods::addAtEnd);
+        poemBeautifier.beautify("My House", DecorateMethods::toUpperCase);
+        poemBeautifier.beautify("My House", DecorateMethods::toLowerCase);
     }
 }
