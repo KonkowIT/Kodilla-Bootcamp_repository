@@ -13,12 +13,12 @@ public class DecorateMethods{
     }
 
     public static String toUpperCase(String toBeautify){
-        String result = toUpperCase(toBeautify);
+        String result = toBeautify.toUpperCase();
         return result;
     }
 
     public static String toLowerCase(String toBeautify){
-        String result = toLowerCase(toBeautify);
+        String result = toBeautify.toLowerCase();
         return result;
     }
 }
