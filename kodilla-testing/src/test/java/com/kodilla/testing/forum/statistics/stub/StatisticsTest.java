@@ -22,5 +22,4 @@ public class StatisticsTest {
         //then
         Assert.assertEquals(10.0, result, 1.0);
     }
-
 }

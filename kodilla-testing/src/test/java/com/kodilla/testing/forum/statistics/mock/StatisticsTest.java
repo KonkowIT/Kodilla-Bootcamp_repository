@@ -79,4 +79,5 @@ public class StatisticsTest {
         //then
         Assert.assertEquals(0.01, result, 0.1);
     }
+
 }
