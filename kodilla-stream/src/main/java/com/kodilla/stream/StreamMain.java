@@ -1,32 +1,27 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.beautifier.DecorateMethods;
-import com.kodilla.stream.beautifier.PoemBeautifier;
-import com.kodilla.stream.lambda.ExpressionExecuter;
-import com.kodilla.stream.person.People;
-import com.kodilla.stream.reference.FunctionalCalculator;
+import com.kodilla.stream.forumuser.Forum;
+import com.kodilla.stream.forumuser.ForumUser;
+
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class StreamMain {
     public static void main(String[] args) {
-        ExpressionExecuter expressionExecuter = new ExpressionExecuter(); //tworzenie obiektu klasy expressionExecuter
+        LocalDate ageOf20 = LocalDate.of(1998, 03, 29);
+        Forum forum = new Forum();
 
-        System.out.println("Calculating expressions with lambdas");
-        expressionExecuter.executerExpression(10, 5, (a, b) -> a + b);
-        expressionExecuter.executerExpression(10, 5, (a, b) -> a - b);
-        expressionExecuter.executerExpression(10, 5, (a, b) -> a * b);
-        expressionExecuter.executerExpression(10, 5, (a, b) -> a / b);
+        Map<Integer, ForumUser> usersMap = forum.getUserList().stream()
+                .filter(Forum -> Forum.getSex() == 'M')
+                .filter(Forum -> ChronoUnit.YEARS.between(Forum.getBirthDate(), ageOf20) < 20)
+                .filter(Forum -> Forum.getPublishedPosts() > 0)
+                .collect(Collectors.toMap(ForumUser::getUnicUserID, Forum -> Forum));
 
-        System.out.println("Calculating expressions with referencess ");
-        expressionExecuter.executerExpression(3, 4, FunctionalCalculator::multiplyAByB);
-        expressionExecuter.executerExpression(3, 4, FunctionalCalculator::addAToB);
-        expressionExecuter.executerExpression(3, 4, FunctionalCalculator::subBFromA);
-        expressionExecuter.executerExpression(3, 4, FunctionalCalculator::divideAByB);
-
-        PoemBeautifier poemBeautifier = new PoemBeautifier();
-
-        poemBeautifier.beautify("My House", DecorateMethods::addAtBegining);
-        poemBeautifier.beautify("My House", DecorateMethods::addAtEnd);
-        poemBeautifier.beautify("My House", DecorateMethods::toUpperCase);
-        poemBeautifier.beautify("My House", DecorateMethods::toLowerCase);
+        System.out.println("Lista użytkowników oraz ich dane:\n");
+        usersMap.entrySet().stream()
+                .map(Forum -> Forum.getKey() + ": " + Forum.getValue())
+                .forEach(System.out::println);
     }
 }
