@@ -5,9 +5,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import static com.sun.tools.doclint.Entity.ne;
+import static com.sun.tools.doclint.Entity.sum;
+
 public class World {
     //zawiera kolekcjię kontynetów
     Map<String, Continent> mapOfContinents = new HashMap<>();
+    Continent continent = new Continent();
+    Country country = new Country();
 
     public void mapOfContinents(){
         mapOfContinents.put("Europ", new Continent());
@@ -24,9 +29,10 @@ public class World {
     }
 
     public BigDecimal getPeopleQuantity(){
-        BigDecimal peopleQuantity = World.getMapOfContinents.stream()
-                .flatMap(World -> World.getMapOfContinents.getListOfContinentCountries().stream())
-                .reduce(BigDecimal.ZERO, (sum, current) -> sum = sum.add(current));
+        BigDecimal peopleQuantity = mapOfContinents().stream()
+                .flatMap(worldQuantity -> mapOfContinents.values().stream())
+                .flatMap(continentQuantity -> continent.listOfContinentCountries::get)
+                .reduce(BigDecimal.ZERO, (BigDecimal sum, BigDecimal current) -> sum = sum.add(current));
         return peopleQuantity;
     }
 }
