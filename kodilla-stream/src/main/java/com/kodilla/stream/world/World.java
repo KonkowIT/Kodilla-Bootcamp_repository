@@ -26,12 +26,12 @@ public class World {
         return mapOfContinents;
     }
 
-    public BigDecimal getWorldPeopleQuantity(){
+ /*   public BigDecimal getWorldPeopleQuantity(){
         BigDecimal worldPeopleQuantity = getMapOfContinents().stream()
                 .flatMap(worldQuantity -> getMapOfContinents().stream())
                 .flatMap(continentQuantity -> continent.getListOfContinentCountries())
                 .map(countryQuantity -> Country::getPeopleQuantity)
                 .reduce(BigDecimal.ZERO, (BigDecimal sum, BigDecimal current) -> sum = sum.add(current));
         return peopleQuantity;
-    }
+    }*/
 }

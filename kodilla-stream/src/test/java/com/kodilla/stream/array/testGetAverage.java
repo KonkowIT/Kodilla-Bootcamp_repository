@@ -3,11 +3,9 @@ package com.kodilla.stream.array;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static com.kodilla.stream.array.ArrayOperations.numbers;
-
 public class testGetAverage {
     @Test
-    public void testGetAverage{
+    public void testGetAverage() {
         //given
         int[] marks = new int[20];
         marks[0] = 2;
@@ -33,7 +31,7 @@ public class testGetAverage {
         marks[19] = 5;
 
         //when
-        double streamAverage = ArrayOperations.getAverage(20);
+        double streamAverage = ArrayOperations.getAverage();
         double sum = 0;
         for(int i=0; i<marks.length; i++) {
             sum += marks[i];
@@ -42,6 +40,6 @@ public class testGetAverage {
         double average = sum/marks.length;
 
         //then
-        Assert.assertEquals(average, streamAverage);
+        Assert.assertEquals(average, streamAverage, 0.001);
     }
 }
