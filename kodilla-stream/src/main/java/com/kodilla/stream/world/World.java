@@ -11,7 +11,7 @@ import static com.sun.tools.doclint.Entity.sum;
 public class World {
     //zawiera kolekcjię kontynetów
     Map<String, Continent> mapOfContinents = new HashMap<>();
-    Continent continent = new Continent();
+    Continent continent;
     Country country = new Country();
 
     public void mapOfContinents(){
@@ -29,9 +29,9 @@ public class World {
     }
 
     public BigDecimal getPeopleQuantity(){
-        BigDecimal peopleQuantity = mapOfContinents().stream()
-                .flatMap(worldQuantity -> mapOfContinents.values().stream())
-                .flatMap(continentQuantity -> continent.listOfContinentCountries::get)
+        BigDecimal peopleQuantity = getMapOfContinents().values().stream()
+                .flatMap(worldQuantity -> getMapOfContinents().values().stream())
+                .flatMap(continentQuantity -> continent.getListOfContinentCountries()::getValue)
                 .reduce(BigDecimal.ZERO, (BigDecimal sum, BigDecimal current) -> sum = sum.add(current));
         return peopleQuantity;
     }
