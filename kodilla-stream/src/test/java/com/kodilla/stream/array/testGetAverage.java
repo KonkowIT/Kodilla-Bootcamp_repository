@@ -7,37 +7,26 @@ public class testGetAverage {
     @Test
     public void testGetAverage() {
         //given
-        int[] marks = new int[20];
-        marks[0] = 2;
-        marks[1] = 4;
-        marks[2] = 5;
-        marks[3] = 3;
-        marks[4] = 4;
-        marks[5] = 5;
-        marks[6] = 4;
-        marks[7] = 3;
-        marks[8] = 5;
-        marks[8] = 6;
-        marks[9] = 6;
-        marks[10] = 3;
-        marks[11] = 5;
-        marks[12] = 3;
-        marks[13] = 5;
-        marks[14] = 3;
-        marks[15] = 4;
-        marks[16] = 4;
-        marks[17] = 3;
-        marks[18] = 4;
-        marks[19] = 5;
+        int[] numbers = new int[10];
+        numbers[0] = 2;
+        numbers[1] = 2;
+        numbers[2] = 3;
+        numbers[3] = 4;
+        numbers[4] = 3;
+        numbers[5] = 6;
+        numbers[6] = 4;
+        numbers[7] = 3;
+        numbers[8] = 5;
+        numbers[9] = 3;
 
         //when
-        double streamAverage = ArrayOperations.getAverage();
+        double streamAverage = ArrayOperations.getAverage(numbers);
         double sum = 0;
-        for(int i=0; i<marks.length; i++) {
-            sum += marks[i];
+        for(int i=0; i<numbers.length; i++) {
+            sum += numbers[i];
         }
 
-        double average = sum/marks.length;
+        double average = sum/numbers.length;
 
         //then
         Assert.assertEquals(average, streamAverage, 0.001);
