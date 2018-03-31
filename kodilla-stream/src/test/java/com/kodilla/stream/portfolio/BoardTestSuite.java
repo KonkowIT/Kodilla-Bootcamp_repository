@@ -139,10 +139,18 @@ public class BoardTestSuite {
 
     @Test
     public void testAverageDaysOfRealisation(){
-        //Given
+       /* //Given
         Board project = prepareTestData();
 
         //when
-
+        List<TaskList> inProgressTasks = new ArrayList<>();
+        inProgressTasks.add(new TaskList("In progress"));
+        long longTasks = project.getTaskLists().stream()
+                .filter(inProgressTasks::contains)
+                .flatMap(tl -> tl.getTasks().stream())
+                .map(t -> t.getCreated())
+                .map(t -> t.)
+        //then
+        Assert.assertEquals()*/
     }
 }
