@@ -256,6 +256,7 @@ public class Game {
             sumPlayer = 0;
         }
         if (chosenYOrN.equals("x") || chosenYOrN.equals("X")) { end = scannedNumberOfRounds + 1; }
+
         System.out.println("\nBye bye ;-)");
     }
 }
