@@ -1,4 +1,4 @@
-package rps;
+package com.kodilla.rps_extended;
 
 import java.util.Scanner;
 

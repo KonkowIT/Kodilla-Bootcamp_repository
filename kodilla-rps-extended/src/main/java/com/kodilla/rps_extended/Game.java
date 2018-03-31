@@ -1,4 +1,4 @@
-package rps;
+package com.kodilla.rps_extended;
 
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
@@ -205,6 +205,40 @@ public class Game {
                 System.out.println("You need to write correct figure");
             }*/
 
+            //end of game
+            if (chosenRPS.equals("X") ||
+                    chosenRPS.equals("x")){
+                System.out.println("Are You shure, You want to end game?");
+                Scanner scanYOrN = new Scanner(System.in);
+                String chosenYOrN = scanYOrN.nextLine();
+
+                if (chosenYOrN.equals("Y") ||
+                        chosenYOrN.equals("y")){
+                    end = scannedNumberOfRounds + 1;
+                }
+                else {
+                    System.out.println("Let's resume the game");
+                }
+            }
+
+            //new game
+            if (chosenRPS.equals("N") ||
+                    chosenRPS.equals("n")) {
+                System.out.println("Are You shure, You want start a new game? You will lose actual score");
+                Scanner scanYOrN = new Scanner(System.in);
+                String chosenYOrN = scanYOrN.nextLine();
+
+                if (chosenYOrN.equals("Y") ||
+                        chosenYOrN.equals("y")) {
+                    end = 1;
+                    sumPC = 0;
+                    sumPlayer = 0;
+                }
+                else {
+                    System.out.println("Let's resume the game");
+                }
+            }
+
             String sumPlayerString = Integer.toString(sumPlayer);
             String sumPCString = Integer.toString(sumPC);
             String result = sumPCString + " : " + sumPlayerString;
@@ -212,6 +246,16 @@ public class Game {
         System.out.println("That's all. Final score of " + (end - 1) + " rounds is " + max(sumPC, sumPlayer) + " to " + min(sumPC, sumPlayer) + "\n");
         if (sumPC > sumPlayer){ System.out.println("Computer win, maybe next time"); }
         if (sumPC < sumPlayer){ System.out.println("Congrats, You win!"); }
+
+        System.out.println("What do You want to do now?\n(press 'x' to end, press 'n' to start a new game");
+        Scanner scanYOrN = new Scanner(System.in);
+        String chosenYOrN = scanYOrN.nextLine();
+        if (chosenYOrN.equals("n") || chosenYOrN.equals("N")){
+            end = 1;
+            sumPC = 0;
+            sumPlayer = 0;
+        }
+        if (chosenYOrN.equals("x") || chosenYOrN.equals("X")) { end = scannedNumberOfRounds + 1; }
         System.out.println("\nBye bye ;-)");
     }
 }
