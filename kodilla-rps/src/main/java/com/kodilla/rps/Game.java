@@ -1,6 +1,5 @@
 package com.kodilla.rps;
 
-import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -8,7 +7,7 @@ import static java.lang.Integer.max;
 import static java.lang.Integer.min;
 
 public class Game {
-    int end = 1;
+    private int end = 1;
 
     public void launchGame(int scannedNumberOfRounds) {
         int sumPlayer = 0;
@@ -135,7 +134,7 @@ public class Game {
 
                 String sumPlayerString = Integer.toString(sumPlayer);
                 String sumPCString = Integer.toString(sumPC);
-                String result = sumPCString + " : " + sumPlayerString;
+                System.out.println(sumPCString + " : " + sumPlayerString);
             }
             System.out.println("That's all. Final score of " + (end - 1) + " rounds is " + max(sumPC, sumPlayer) + " to " + min(sumPC, sumPlayer));
             if (sumPC > sumPlayer) {

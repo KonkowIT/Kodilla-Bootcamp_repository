@@ -7,7 +7,7 @@ import static java.lang.Integer.max;
 import static java.lang.Integer.min;
 
 public class GameExtended {
-    int end = 1;
+    private int end = 1;
 
     public void launchGame(int scannedNumberOfRounds) {
         int sumPlayer = 0;
@@ -248,7 +248,7 @@ public class GameExtended {
 
                 String sumPlayerString = Integer.toString(sumPlayer);
                 String sumPCString = Integer.toString(sumPC);
-                String result = sumPCString + " : " + sumPlayerString;
+                System.out.println(sumPCString + " : " + sumPlayerString);
             }
             System.out.println("That's all. Final score of " + (end - 1) + " rounds is " + max(sumPC, sumPlayer) + " to " + min(sumPC, sumPlayer));
             if (sumPC > sumPlayer) {
@@ -261,7 +261,7 @@ public class GameExtended {
             System.out.println("What do You want to do now? [X = end game / N = start new game]");
             Scanner scanYOrN = new Scanner(System.in);
             char chosenYOrN = scanYOrN.next().trim().charAt(0);
-            ;
+
             while (chosenYOrN != 'X' &&
                     chosenYOrN != 'x' &&
                     chosenYOrN != 'N' &&
