@@ -24,7 +24,14 @@ public class Game {
             //random numbers generator
             int randomInt = ThreadLocalRandom.current().nextInt(0, 2 + 1);
 
-            //options of play, computer choose 0
+            //bad answer
+            /*if (!chosenRPS.equals("paper") ||
+                    !chosenRPS.equals("scissors") ||
+                    !chosenRPS.equals("paper")){
+                System.out.println("You need to choose correct figure");
+            }*/
+
+            //options of play, computer choose 0 - rock
             if (randomInt == 0 && chosenRPS.equals("rock")){
                 System.out.println("Computer choose rock\nIt's draw!");
                 System.out.println("Result is " + sumPlayer + " : " + sumPC + "\n");
@@ -45,7 +52,7 @@ public class Game {
                 end++;
             }
 
-            //options of play, computer choose 1
+            //options of play, computer choose 1 - paper
             if (randomInt == 1 && chosenRPS.equals("rock")){
                 System.out.println("Computer choose paper\nYou lose!");
                 sumPC++;
@@ -66,7 +73,7 @@ public class Game {
                 end++;
             }
 
-            //options of play, computer choose 2
+            //options of play, computer choose 2 - scissors
             if (randomInt == 2 && chosenRPS.equals("rock")){
                 System.out.println("Computer choose scissors\nYou win!");
                 sumPlayer++;
@@ -86,13 +93,6 @@ public class Game {
                 System.out.println("Result is " + sumPlayer + " : " + sumPC + "\n");
                 end++;
             }
-
-            //bad answer
-            /*if (!chosenRPS.equals("paper") ||
-                    !chosenRPS.equals("scissors") ||
-                    !chosenRPS.equals("paper")){
-                System.out.println("You need to choose correct figure");
-            }*/
 
             //end of game
             if (chosenRPS.equals("X") ||

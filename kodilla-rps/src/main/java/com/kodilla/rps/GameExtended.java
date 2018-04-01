@@ -1,4 +1,4 @@
-package com.kodilla.rps_extended;
+package com.kodilla.rps;
 
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
@@ -6,7 +6,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import static java.lang.Integer.max;
 import static java.lang.Integer.min;
 
-public class Game {
+public class GameExtended {
     int end = 1;
 
     public void launchGame(int scannedNumberOfRounds) {
