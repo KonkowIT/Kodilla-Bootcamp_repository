@@ -136,7 +136,7 @@ public class Game {
         if (sumPC > sumPlayer){ System.out.println("Computer win, maybe next time" + "\n"); }
         if (sumPC < sumPlayer){ System.out.println("Congrats, You win!" + "\n"); }
 
-        System.out.println("What do You want to do now?\n(press 'x' to end, press 'n' to start a new game)");
+        System.out.println("What do You want to do now? [X - end game / N - start new game)");
         Scanner scanYOrN = new Scanner(System.in);
         String chosenYOrN = scanYOrN.nextLine();
         if (chosenYOrN.equals("n") || chosenYOrN.equals("N")){
