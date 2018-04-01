@@ -41,6 +41,6 @@ public class StreamMain {
 
         //7.4
         World world = new World();
-        System.out.println("\nWorld people quantity - " + world.getWorldPeopleQuantity());
+        System.out.println("\nWorld people quantity - " + world.getWorldPeopleQuantity(7));
     }
 }
