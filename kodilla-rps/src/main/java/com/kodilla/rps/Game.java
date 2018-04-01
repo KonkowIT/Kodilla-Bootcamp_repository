@@ -2,7 +2,6 @@ package com.kodilla.rps;
 
 import java.util.Random;
 import java.util.Scanner;
-import java.util.concurrent.ThreadLocalRandom;
 
 import static java.lang.Integer.max;
 import static java.lang.Integer.min;
