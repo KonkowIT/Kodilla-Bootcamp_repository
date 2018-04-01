@@ -8,30 +8,30 @@ import static com.sun.tools.doclint.Entity.sum;
 
 public class World {
     //zawiera kolekcjię kontynetów
-    List<Continent> mapOfContinents = new ArrayList<>();
+    List<Continent> listOfContinents = new ArrayList<>();
     Continent continent;
-    Country country;
+    Country country = new Country();
 
-    public void mapOfContinents(){
-        mapOfContinents.add(new Continent());
-        mapOfContinents.add(new Continent());
-        mapOfContinents.add(new Continent());
-        mapOfContinents.add(new Continent());
-        mapOfContinents.add(new Continent());
-        mapOfContinents.add(new Continent());
-        mapOfContinents.add(new Continent());
+    private void listOfContinents(){
+        listOfContinents.add(new Continent());
+        listOfContinents.add(new Continent());
+        listOfContinents.add(new Continent());
+        listOfContinents.add(new Continent());
+        listOfContinents.add(new Continent());
+        listOfContinents.add(new Continent());
+        listOfContinents.add(new Continent());
     }
 
-    public List<Continent> getMapOfContinents(){
-        return mapOfContinents;
+    public List<Continent> getListOfContinents(){
+        return listOfContinents;
     }
 
- /*   public BigDecimal getWorldPeopleQuantity(){
-        BigDecimal worldPeopleQuantity = getMapOfContinents().stream()
-                .flatMap(worldQuantity -> getMapOfContinents().stream())
-                .flatMap(continentQuantity -> continent.getListOfContinentCountries())
-                .map(countryQuantity -> Country::getPeopleQuantity)
+    public BigDecimal getWorldPeopleQuantity(){
+        BigDecimal worldPeopleQuantity = getListOfContinents().stream()
+                .flatMap(worldQuantity -> getListOfContinents().stream())
+                .flatMap(continentQuantity -> continent.getListOfContinentCountries().stream())
+                .map(countryQuantity -> country.getPeopleQuantity())
                 .reduce(BigDecimal.ZERO, (BigDecimal sum, BigDecimal current) -> sum = sum.add(current));
-        return peopleQuantity;
-    }*/
+        return worldPeopleQuantity;
+    }
 }

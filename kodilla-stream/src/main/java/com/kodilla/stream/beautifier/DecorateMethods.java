@@ -1,6 +1,6 @@
 package com.kodilla.stream.beautifier;
 
-public class DecorateMethods{
+public class DecorateMethods {
 
     public static String addAtBegining(String toBeautify){
         String result = "ABC" + toBeautify;
@@ -17,7 +17,7 @@ public class DecorateMethods{
         return result;
     }
 
-    public static String toLowerCase(String toBeautify){
+    public static String toLowerCase(String toBeautify) {
         String result = toBeautify.toLowerCase();
         return result;
     }

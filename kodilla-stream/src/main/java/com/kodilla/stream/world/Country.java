@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.Map;
 
 public class Country {
-    public static BigDecimal getPeopleQuntity() {
+    public BigDecimal getPeopleQuantity() {
         BigDecimal peopleQuantity = new BigDecimal(123456);
         return peopleQuantity;
     }
