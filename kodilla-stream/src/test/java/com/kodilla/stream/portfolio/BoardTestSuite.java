@@ -3,6 +3,7 @@ package com.kodilla.stream.portfolio;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +47,7 @@ public class BoardTestSuite {
                 "Archive data searching has to be optimized",
                 user4,
                 user2,
-                LocalDate.now(),
+                LocalDate.now().minusDays(20),
                 LocalDate.now().plusDays(5));
         Task task6 = new Task("Use Streams",
                 "use Streams rather than for-loops in predictions",
@@ -139,18 +140,21 @@ public class BoardTestSuite {
 
     @Test
     public void testAverageDaysOfRealisation(){
-       /* //Given
+        //Given
         Board project = prepareTestData();
 
         //when
         List<TaskList> inProgressTasks = new ArrayList<>();
         inProgressTasks.add(new TaskList("In progress"));
+        LocalDate today = LocalDate.now();
         long longTasks = project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
                 .flatMap(tl -> tl.getTasks().stream())
-                .map(t -> t.getCreated())
-                .map(t -> t.)
+                .map(d -> Duration.between(d.getCreated(), today).toDays())
+                .count();
+        double result = longTasks / inProgressTasks.size();
+        double countedResult = 16.667;
         //then
-        Assert.assertEquals()*/
+        Assert.assertEquals(countedResult, result, 0.01);
     }
 }
