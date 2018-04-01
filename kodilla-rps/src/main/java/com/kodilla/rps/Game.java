@@ -16,135 +16,157 @@ public class Game {
         System.out.println("\n");
 
         while (end < scannedNumberOfRounds + 1) {
-            System.out.println("Round #" + end);
-            System.out.println("Choose rock, paper or scissors");
-            Scanner scanRPS = new Scanner(System.in);
-            String chosenRPS = scanRPS.nextLine();
+            while (end < scannedNumberOfRounds + 1) {
+                System.out.println("Round #" + end);
+                System.out.println("Choose rock, paper or scissors");
+                Scanner scanRPS = new Scanner(System.in);
+                String chosenRPS = scanRPS.nextLine();
 
-            //random numbers generator
-            int randomInt = ThreadLocalRandom.current().nextInt(0, 2 + 1);
+                //random numbers generator
+                int randomInt = ThreadLocalRandom.current().nextInt(0, 2 + 1);
 
-            //bad answer
-            /*if (!chosenRPS.equals("paper") ||
-                    !chosenRPS.equals("scissors") ||
-                    !chosenRPS.equals("paper")){
-                System.out.println("You need to choose correct figure");
-            }*/
-
-            //options of play, computer choose 0 - rock
-            if (randomInt == 0 && chosenRPS.equals("rock")){
-                System.out.println("Computer choose rock\nIt's draw!");
-                System.out.println("Result is " + sumPlayer + " : " + sumPC + "\n");
-                end++;
-            }
-
-            if (randomInt == 0 && chosenRPS.equals("scissors")){
-                System.out.println("Computer choose rock\nYou lose!");
-                sumPC++;
-                System.out.println("Result is " + sumPlayer + " : " + sumPC + "\n");
-                end++;
-            }
-
-            if (randomInt == 0 && chosenRPS.equals("paper")){
-                System.out.println("Computer choose rock\nYou win!");
-                sumPlayer++;
-                System.out.println("Result is " + sumPlayer + " : " + sumPC + "\n");
-                end++;
-            }
-
-            //options of play, computer choose 1 - paper
-            if (randomInt == 1 && chosenRPS.equals("rock")){
-                System.out.println("Computer choose paper\nYou lose!");
-                sumPC++;
-                System.out.println("Result is " + sumPlayer + " : " + sumPC + "\n");
-                end++;
-            }
-
-            if (randomInt == 1 && chosenRPS.equals("scissors")){
-                System.out.println("Computer choose paper\nYou win!");
-                sumPlayer++;
-                System.out.println("Result is " + sumPlayer + " : " + sumPC + "\n");
-                end++;
-            }
-
-            if (randomInt == 1 && chosenRPS.equals("paper")){
-                System.out.println("Computer choose paper\nIt's draw!");
-                System.out.println("Result is " + sumPlayer + " : " + sumPC + "\n");
-                end++;
-            }
-
-            //options of play, computer choose 2 - scissors
-            if (randomInt == 2 && chosenRPS.equals("rock")){
-                System.out.println("Computer choose scissors\nYou win!");
-                sumPlayer++;
-                System.out.println("Result is " + sumPlayer + " : " + sumPC + "\n");
-                end++;
-            }
-
-            if (randomInt == 2 && chosenRPS.equals("scissors")){
-                System.out.println("Computer choose scissors\nIt's draw!");
-                System.out.println("Result is " + sumPlayer + " : " + sumPC + "\n");
-                end++;
-            }
-
-            if (randomInt == 2 && chosenRPS.equals("paper")){
-                System.out.println("Computer choose scissors\nYou lose!");
-                sumPC++;
-                System.out.println("Result is " + sumPlayer + " : " + sumPC + "\n");
-                end++;
-            }
-
-            //end of game
-            if (chosenRPS.equals("X") ||
-                    chosenRPS.equals("x")){
-                System.out.println("Are You shure, You want to end game?");
-                Scanner scanYOrN = new Scanner(System.in);
-                String chosenYOrN = scanYOrN.nextLine();
-
-                if (chosenYOrN.equals("Y") ||
-                        chosenYOrN.equals("y")){
-                    end = scannedNumberOfRounds + 1;
+                //bad answer
+                while (!chosenRPS.equals("rock") &&
+                        !chosenRPS.equals("scissors") &&
+                        !chosenRPS.equals("paper") &&
+                        !chosenRPS.equals("x") &&
+                        !chosenRPS.equals("X") &&
+                        !chosenRPS.equals("n") &&
+                        !chosenRPS.equals("N")) {
+                    System.out.println("You need to choose correct figure");
+                    Scanner scanRPSSecond = new Scanner(System.in);
+                    chosenRPS = scanRPSSecond.nextLine();
                 }
-                else {
-                    System.out.println("Let's resume the game");
+
+                //options of play, computer choose 0 - rock
+                if (randomInt == 0 && chosenRPS.equals("rock")) {
+                    System.out.println("Computer choose rock\nIt's draw!");
+                    System.out.println("Result is " + sumPlayer + " : " + sumPC + "\n");
+                    end++;
                 }
+
+                if (randomInt == 0 && chosenRPS.equals("scissors")) {
+                    System.out.println("Computer choose rock\nRock beats scissors\nYou lose!");
+                    sumPC++;
+                    System.out.println("Result is " + sumPlayer + " : " + sumPC + "\n");
+                    end++;
+                }
+
+                if (randomInt == 0 && chosenRPS.equals("paper")) {
+                    System.out.println("Computer choose rock\nPaper beats rock\nYou win!");
+                    sumPlayer++;
+                    System.out.println("Result is " + sumPlayer + " : " + sumPC + "\n");
+                    end++;
+                }
+
+                //options of play, computer choose 1 - paper
+                if (randomInt == 1 && chosenRPS.equals("rock")) {
+                    System.out.println("Computer choose paper\nPaper beats rock\nYou lose!");
+                    sumPC++;
+                    System.out.println("Result is " + sumPlayer + " : " + sumPC + "\n");
+                    end++;
+                }
+
+                if (randomInt == 1 && chosenRPS.equals("scissors")) {
+                    System.out.println("Computer choose paper\nScissors beats paper\nYou win!");
+                    sumPlayer++;
+                    System.out.println("Result is " + sumPlayer + " : " + sumPC + "\n");
+                    end++;
+                }
+
+                if (randomInt == 1 && chosenRPS.equals("paper")) {
+                    System.out.println("Computer choose paper\nIt's draw!");
+                    System.out.println("Result is " + sumPlayer + " : " + sumPC + "\n");
+                    end++;
+                }
+
+                //options of play, computer choose 2 - scissors
+                if (randomInt == 2 && chosenRPS.equals("rock")) {
+                    System.out.println("Computer choose scissors\nRock beats scissors\nYou win!");
+                    sumPlayer++;
+                    System.out.println("Result is " + sumPlayer + " : " + sumPC + "\n");
+                    end++;
+                }
+
+                if (randomInt == 2 && chosenRPS.equals("scissors")) {
+                    System.out.println("Computer choose scissors\nIt's draw!");
+                    System.out.println("Result is " + sumPlayer + " : " + sumPC + "\n");
+                    end++;
+                }
+
+                if (randomInt == 2 && chosenRPS.equals("paper")) {
+                    System.out.println("Computer choose scissors\nScissors beats paper\nYou lose!");
+                    sumPC++;
+                    System.out.println("Result is " + sumPlayer + " : " + sumPC + "\n");
+                    end++;
+                }
+
+                //end game
+                if (chosenRPS.equals("X") ||
+                        chosenRPS.equals("x")) {
+                    System.out.println("Are You shure, You want to end game?");
+                    Scanner scanYOrN = new Scanner(System.in);
+                    String chosenYOrN = scanYOrN.nextLine();
+
+                    if (chosenYOrN.equals("Y") ||
+                            chosenYOrN.equals("y")) {
+                        end = scannedNumberOfRounds + 1;
+                    } else {
+                        System.out.println("Let's resume the game");
+                    }
+                }
+
+                //new game
+                if (chosenRPS.equals("N") ||
+                        chosenRPS.equals("n")) {
+                    System.out.println("Are You shure, You want start a new game? You will lose actual score");
+                    Scanner scanYOrN = new Scanner(System.in);
+                    String chosenYOrN = scanYOrN.nextLine();
+
+                    if (chosenYOrN.equals("Y") ||
+                            chosenYOrN.equals("y")) {
+                        end = 1;
+                        sumPC = 0;
+                        sumPlayer = 0;
+                    } else {
+                        System.out.println("Let's resume the game");
+                    }
+                }
+
+                String sumPlayerString = Integer.toString(sumPlayer);
+                String sumPCString = Integer.toString(sumPC);
+                String result = sumPCString + " : " + sumPlayerString;
+            }
+            System.out.println("That's all. Final score of " + (end - 1) + " rounds is " + max(sumPC, sumPlayer) + " to " + min(sumPC, sumPlayer));
+            if (sumPC > sumPlayer) {
+                System.out.println("Computer win, maybe next time" + "\n");
+            }
+            if (sumPC < sumPlayer) {
+                System.out.println("Congrats, You win!" + "\n");
             }
 
-            //new game
-            if (chosenRPS.equals("N") ||
-                    chosenRPS.equals("n")) {
-                System.out.println("Are You shure, You want start a new game? You will lose actual score");
-                Scanner scanYOrN = new Scanner(System.in);
-                String chosenYOrN = scanYOrN.nextLine();
-
-                if (chosenYOrN.equals("Y") ||
-                        chosenYOrN.equals("y")) {
-                    end = 1;
-                    sumPC = 0;
-                    sumPlayer = 0;
-                }
-                else {
-                    System.out.println("Let's resume the game");
-                }
+            System.out.println("What do You want to do now? [X = end game / N = start new game]");
+            Scanner scanYOrN = new Scanner(System.in);
+            char chosenYOrN = scanYOrN.next().trim().charAt(0);
+            while (chosenYOrN != 'X' &&
+                    chosenYOrN != 'x' &&
+                    chosenYOrN != 'N' &&
+                    chosenYOrN != 'n') {
+                System.out.println("You need to choose what do You want to do now [X = end game / N = start new game]");
+                Scanner scanYOrNSecond = new Scanner(System.in);
+                chosenYOrN = scanYOrNSecond.next().trim().charAt(0);
             }
 
-            String sumPlayerString = Integer.toString(sumPlayer);
-            String sumPCString = Integer.toString(sumPC);
-            String result = sumPCString + " : " + sumPlayerString;
+            if (chosenYOrN == 'n' || chosenYOrN == 'N') {
+                end = 1;
+                sumPC = 0;
+                sumPlayer = 0;
+            }
+
+            if (chosenYOrN == 'x' || chosenYOrN == 'X') {
+                end = scannedNumberOfRounds + 1;
+            }
         }
-        System.out.println("That's all. Final score of " + (end - 1) + " rounds is " + max(sumPC, sumPlayer) + " to " + min(sumPC, sumPlayer));
-        if (sumPC > sumPlayer){ System.out.println("Computer win, maybe next time" + "\n"); }
-        if (sumPC < sumPlayer){ System.out.println("Congrats, You win!" + "\n"); }
-
-        System.out.println("What do You want to do now? [X = end game / N = start new game)");
-        Scanner scanYOrN = new Scanner(System.in);
-        String chosenYOrN = scanYOrN.nextLine();
-        if (chosenYOrN.equals("n") || chosenYOrN.equals("N")){
-            end = 1;
-            sumPC = 0;
-            sumPlayer = 0;
-        }
-        if (chosenYOrN.equals("x") || chosenYOrN.equals("X")) { end = scannedNumberOfRounds + 1; }
 
         System.out.println("\nBye bye ;-)");
     }

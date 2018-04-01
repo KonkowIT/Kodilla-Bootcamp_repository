@@ -43,7 +43,7 @@ public class RpsRunner {
                         playHarderOrNormal != 'Y' &&
                         playHarderOrNormal != 'n' &&
                         playHarderOrNormal != 'y'){
-                    System.out.println("Please choose game version or press 'X' to end game\n");
+                    System.out.println("Choose game version or press 'X' to end game\n");
                     System.out.println("Do You wanna try harder version? [Y = yes / N = no]");
                     Scanner scanHarderOrNormalSecond = new Scanner(in);
                     playHarderOrNormal = scanHarderOrNormalSecond.next().trim().charAt(0);
