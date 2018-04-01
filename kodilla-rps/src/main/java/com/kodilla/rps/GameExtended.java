@@ -1,5 +1,6 @@
 package com.kodilla.rps;
 
+import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -22,7 +23,8 @@ public class GameExtended {
                 String chosenRPS = scanRPS.nextLine();
 
                 //random numbers generator
-                int randomInt = ThreadLocalRandom.current().nextInt(0, 4 + 1);
+                Random generator = new Random();
+                int randomInt = generator.nextInt(5);
 
                 //bad answer
                 while (!chosenRPS.equals("rock") &&
@@ -33,7 +35,9 @@ public class GameExtended {
                         !chosenRPS.equals("x") &&
                         !chosenRPS.equals("X") &&
                         !chosenRPS.equals("n") &&
-                        !chosenRPS.equals("N")) {
+                        !chosenRPS.equals("N") &&
+                        !chosenRPS.equals("y") &&
+                        !chosenRPS.equals("Y")) {
                     System.out.println("You need to choose correct figure");
                     Scanner scanRPSSecond = new Scanner(System.in);
                     chosenRPS = scanRPSSecond.nextLine();
@@ -245,11 +249,8 @@ public class GameExtended {
                         System.out.println("Let's resume the game");
                     }
                 }
-
-                String sumPlayerString = Integer.toString(sumPlayer);
-                String sumPCString = Integer.toString(sumPC);
-                System.out.println(sumPCString + " : " + sumPlayerString);
             }
+
             System.out.println("That's all. Final score of " + (end - 1) + " rounds is " + max(sumPC, sumPlayer) + " to " + min(sumPC, sumPlayer));
             if (sumPC > sumPlayer) {
                 System.out.println("Computer win, maybe next time" + "\n");
