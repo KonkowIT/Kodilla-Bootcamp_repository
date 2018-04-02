@@ -1,6 +1,5 @@
 package com.kodilla.rps;
 
-import java.io.InputStream;
 import java.util.Scanner;
 
 import static java.lang.System.in;
@@ -17,11 +16,9 @@ public class RpsRunner {
 
         System.out.println("Hello " + playerName + "\nDo You wanna play a game? [Y = yes / N = no]");
         Scanner scanPlayGame = new Scanner(in);
-        char playGameAnswer = scanPlayGame.next().trim().charAt(0);
+        char playGameAnswer = scanPlayGame.next().trim().toLowerCase().charAt(0);
 
-        while (playGameAnswer != 'N' &&
-                playGameAnswer != 'Y' &&
-                playGameAnswer != 'n' &&
+        while (playGameAnswer != 'n' &&
                 playGameAnswer != 'y') {
             System.out.println("Please put 'Y' to play or 'N' to end game");
             Scanner scanPlayGameSecondTime = new Scanner(in);
@@ -29,51 +26,62 @@ public class RpsRunner {
         }
 
         while(playGameAnswer == 'y' ||
-                playGameAnswer == 'Y' ||
-                playGameAnswer == 'N' ||
                 playGameAnswer == 'n') {
 
-            if (playGameAnswer == 'Y' ||
-                    playGameAnswer == 'y') {
+            //how many rounds question
+            if (playGameAnswer == 'y') {
                 System.out.println("Do You wanna try harder version? [Y = yes / N = no]");
                 Scanner scanHarderOrNormal = new Scanner(in);
-                char playHarderOrNormal = scanHarderOrNormal.next().trim().charAt(0);
+                char playHarderOrNormal = scanHarderOrNormal.next().trim().toLowerCase().charAt(0);
 
-                if (playHarderOrNormal != 'N' &&
-                        playHarderOrNormal != 'Y' &&
-                        playHarderOrNormal != 'n' &&
+                //bad answer
+                if (playHarderOrNormal != 'n' &&
                         playHarderOrNormal != 'y'){
                     System.out.println("Choose game version or press 'X' to end game\n");
                     System.out.println("Do You wanna try harder version? [Y = yes / N = no]");
                     Scanner scanHarderOrNormalSecond = new Scanner(in);
-                    playHarderOrNormal = scanHarderOrNormalSecond.next().trim().charAt(0);
+                    playHarderOrNormal = scanHarderOrNormalSecond.next().trim().toLowerCase().charAt(0);
                 }
 
-                if(playHarderOrNormal == 'Y' || playHarderOrNormal == 'y'){
+                //harder version
+                if(playHarderOrNormal == 'y'){
                     System.out.println("ok, let's play hard version\nHow many rounds do You wanna play?");
                     Scanner scanRounds = new Scanner(in);
+                    while (!scanRounds.hasNextInt()){
+                        System.out.println("Please enter the number");
+                        scanRounds = new Scanner(in);
+                    }
+
                     int scannedNumberOfRounds = scanRounds.nextInt();
+                    System.out.println("Launching a " + scannedNumberOfRounds + "-round game, good luck!");
                     gameExtended.launchGame(scannedNumberOfRounds);
                     playGameAnswer = 'z';
                 }
 
-                if(playHarderOrNormal == 'N' || playHarderOrNormal == 'n'){
+                //normal version
+                if(playHarderOrNormal == 'n'){
                     System.out.println("ok, let's play normal version\nHow many rounds do You wanna play?");
                     Scanner scanRounds = new Scanner(in);
+                    while (!scanRounds.hasNextInt()){
+                        System.out.println("Please enter the number");
+                        scanRounds = new Scanner(in);
+                    }
+
                     int scannedNumberOfRounds = scanRounds.nextInt();
+                    System.out.println("Launching a " + scannedNumberOfRounds + "-round game, good luck!");
                     game.launchGame(scannedNumberOfRounds);
                     playGameAnswer = 'z';
                 }
 
-                if(playHarderOrNormal == 'X' || playHarderOrNormal == 'x'){
+                //ending game during harder/normal choice
+                if(playHarderOrNormal == 'x'){
                     System.out.println("Sorry to hear that, see You soon ;)");
                     playGameAnswer = 'z';
                 }
-
             }
 
-            if (playGameAnswer == 'N' ||
-                    playGameAnswer == 'n') {
+            //ending game after texting name
+            if (playGameAnswer == 'n') {
                 System.out.println("Sorry to hear that, see You soon ;)");
                 playGameAnswer = 'z';
             }

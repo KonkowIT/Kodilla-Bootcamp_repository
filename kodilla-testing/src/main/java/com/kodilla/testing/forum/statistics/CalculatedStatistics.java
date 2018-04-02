@@ -9,40 +9,41 @@ public class CalculatedStatistics {
 
     //klasa testowana
 
-    private int avgPostPerUser;
-    private int avgCommentPerUser;
-    private int avgCommentPerPost;
-    private int resultOfUserNamesNumber;
-    private int resultOfPostCount;
-    private int resultOfCommentCount;
-    private int resulOfGetAvgPostPerUser;
-    private int resultOfGetAvgCommentPerUser;
-    private int resultOfGetAvgCommentPerPost;
+    private double avgPostPerUser;
+    private double avgCommentPerUser;
+    private double avgCommentPerPost;
 
     Statistics statistics;
 
-    public int getAvgPostPerUser(int postCount){
-        avgPostPerUser = postCount / statistics.usersNames().size();
+    public CalculatedStatistics(Statistics statistics) {
+        this.statistics = statistics;
+    }
+
+    public double getAvgPostPerUser(){
         return avgPostPerUser;
     }
 
-    public int getAvgCommentPerUser(int commentsCount){
-
-        avgCommentPerUser = commentsCount / statistics.usersNames().size();
+    public double getAvgCommentPerUser(){
         return avgCommentPerUser;
     }
 
-    public int getAvgCommentPerPost(int postCount, int commentsCount) {
-        avgCommentPerPost = commentsCount / postCount;
+    public double  getAvgCommentPerPost() {
         return avgCommentPerPost;
     }
 
-    public void calculatedAdvStatistics(int n, int m) {
-        resultOfUserNamesNumber = statistics.usersNames().size();
-        resultOfPostCount = statistics.postCount();
-        resultOfCommentCount = statistics.commentsCount();
-        resulOfGetAvgPostPerUser = getAvgPostPerUser(n);
-        resultOfGetAvgCommentPerUser = getAvgCommentPerUser(n);
-        resultOfGetAvgCommentPerPost = getAvgCommentPerPost(n, m);
+    public void calculatedAdvStatistics() {
+        if (statistics.usersNames().isEmpty()) {
+            avgPostPerUser = 0;
+            avgCommentPerUser = 0;
+        } else {
+            avgPostPerUser = statistics.postCount() / (double)statistics.usersNames().size();
+            avgCommentPerUser = statistics.commentsCount() / (double)statistics.usersNames().size();
+        }
+
+        if (statistics.postCount() == 0){
+            avgCommentPerPost = 0;
+        } else {
+            avgCommentPerPost = statistics.commentsCount() / (double)statistics.postCount();
+        }
     }
 }

@@ -1,12 +1,15 @@
 package com.kodilla.stream.array;
 
+import java.util.stream.IntStream;
+
 public class ArrayOperations {
-    /*static double getAverage(int[] numbers) {
-        int averageNumbers = getAverage(numbers).IntStream()
+    static double getAverage(int[] numbers) {
+        double averageNumbers = IntStream
                 .range(0, numbers.length)
-                .forEach(n -> numbers[n])
-                .average();
+                .map(n -> numbers[n])
+                .average()
+                .getAsDouble();
 
         return averageNumbers;
-    }*/
+    }
 }

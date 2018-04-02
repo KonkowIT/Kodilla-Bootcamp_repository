@@ -1,29 +1,32 @@
 package com.kodilla.stream.world;
 
 import java.math.BigDecimal;
-import java.util.*;
-
-import static com.sun.tools.doclint.Entity.ne;
-import static com.sun.tools.doclint.Entity.sum;
+import java.util.ArrayList;
+import java.util.List;
 
 public class World {
     //zawiera kolekcjię kontynetów
-    List<Continent> listOfContinents = new ArrayList<>();
-    Continent continent;
+    List<List> listOfContinents = new ArrayList<>();
 
-    public List<Continent> getListOfContinents(int n) {
-        for (int i = 0; i == n; i++) {
-            listOfContinents.add(new Continent());
-        }
+    private Europe europe = new Europe();
+    private Asia asia = new Asia();
+    private NorthAmerica northAmerica = new NorthAmerica();
+
+    public World(){
+        listOfContinents.add(europe.getListOfCountries());
+        listOfContinents.add(asia.getListOfCountries());
+        listOfContinents.add(northAmerica.getListOfCountries());
+    }
+
+    public List<List> getListOfContinents() {
         return listOfContinents;
     }
 
-    public BigDecimal getWorldPeopleQuantity(int n){
-        BigDecimal worldPeopleQuantity = getListOfContinents(n).stream()
-                .flatMap(worldQuantity -> continent.getListOfContinentCountries().stream())
-                .map(getCountry -> continent.getListOfContinentCountries().get(0))
-                .map(getQuantity -> continent.getListOfContinentCountries().get(0).getPeopleQuantity())
+    /*public BigDecimal getWorldPeopleQuantity(){
+        BigDecimal worldPeopleQuantity = getListOfContinents().stream()
+                .flatMap(worldQuantity -> worldQuantity.getListOfCountries().stream())
+                .map(getCountry -> getCountry.getQuantity())
                 .reduce(BigDecimal.ZERO, (BigDecimal sum, BigDecimal current) -> sum = sum.add(current));
         return worldPeopleQuantity;
-    }
+    }*/
 }

@@ -1,5 +1,6 @@
 package com.kodilla.stream;
 
+
 import com.kodilla.stream.beautifier.DecorateMethods;
 import com.kodilla.stream.beautifier.PoemBeautifier;
 import com.kodilla.stream.forumuser.Forum;
@@ -41,6 +42,6 @@ public class StreamMain {
 
         //7.4
         World world = new World();
-        System.out.println("\nWorld people quantity - " + world.getWorldPeopleQuantity(7));
+        //System.out.println("\nWorld people quantity - " + world.getWorldPeopleQuantity(7));
     }
 }
