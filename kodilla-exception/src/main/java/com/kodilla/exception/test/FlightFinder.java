@@ -1,9 +1,6 @@
 package com.kodilla.exception.test;
 
-import javax.print.attribute.standard.Finishings;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class FlightFinder {
@@ -14,8 +11,8 @@ public class FlightFinder {
         airportMap.put("International Paris Airport", true);
         airportMap.put("Schipol Airport", true);
 
-        if (airportMap.equals(flight.arrivalAirport) && !airportMap.equals(flight.departureAirport)) {
-            if (airportMap.get(flight.arrivalAirport) && airportMap.get(flight.departureAirport)) {
+        if (airportMap.get(flight.getArrivalAirport()) && airportMap.get(flight.getDepartureAirport())) {
+            if (airportMap.get(flight.getArrivalAirport()) && airportMap.get(flight.getDepartureAirport())) {
                 System.out.println("This flight exists");
             } else {
                 System.out.println("This flight doesn't exists");
