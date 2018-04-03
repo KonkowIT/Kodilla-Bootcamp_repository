@@ -4,25 +4,21 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NorthAmerica {
+public class NorthAmerica implements GetCountries{
 
-    Country usa = new Country(new BigDecimal("500000000"));
-    Country mexico = new Country(new BigDecimal("250000000"));
-    Country canada = new Country(new BigDecimal("300000000"));
-    Country jamaica = new Country(new BigDecimal("42000000"));
-    Country cuba = new Country(new BigDecimal("30000000"));
+    public List<Country> listOfCountries = new ArrayList<>();
+    public Country country;
 
-    List<BigDecimal> listOfContinentCountries = new ArrayList<>();
-
-    public NorthAmerica(){
-        listOfContinentCountries.add(usa.getQuantity());
-        listOfContinentCountries.add(mexico.getQuantity());
-        listOfContinentCountries.add(canada.getQuantity());
-        listOfContinentCountries.add(jamaica.getQuantity());
-        listOfContinentCountries.add(cuba.getQuantity());
+    public NorthAmerica() {
+        listOfCountries.add(country = new Country("USA", new BigDecimal("500000000")));
+        listOfCountries.add(country = new Country("Mexico", new BigDecimal("250000000")));
+        listOfCountries.add(country = new Country("Canada", new BigDecimal("300000000")));
+        listOfCountries.add(country = new Country("Jamaica", new BigDecimal("42000000")));
+        listOfCountries.add(country = new Country("Cuba", new BigDecimal("30000000")));
     }
 
-    public List<BigDecimal> getListOfCountries() {
-        return listOfContinentCountries;
-    }
+    //1 122 000 000
+
+    @Override
+    public List<Country> getCountriesList() { return listOfCountries; }
 }

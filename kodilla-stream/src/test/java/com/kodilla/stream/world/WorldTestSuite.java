@@ -12,10 +12,10 @@ public class WorldTestSuite {
     public void testGetPeopleQuantity(){
         //given
         World world = new World();
-        BigDecimal peopleQuantity = new BigDecimal(4320960);
+        BigDecimal peopleQuantity = new BigDecimal("5704000000");
         //when
-        //BigDecimal worldPeopleQuantity = world.getWorldPeopleQuantity();
+        BigDecimal worldPeopleQuantity = world.getWorldPeopleQuantity();
         //then
-        //Assert.assertEquals(peopleQuantity, worldPeopleQuantity);
+        Assert.assertEquals(peopleQuantity, worldPeopleQuantity);
     }
 }

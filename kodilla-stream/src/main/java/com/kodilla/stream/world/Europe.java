@@ -4,25 +4,21 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Europe {
+public class Europe implements GetCountries{
 
-    Country poland = new Country(new BigDecimal("42000000"));
-    Country germany = new Country(new BigDecimal("70000000"));
-    Country france = new Country(new BigDecimal("60000000"));
-    Country netherlands = new Country(new BigDecimal("25000000"));
-    Country greece = new Country(new BigDecimal("35000000"));
-
-    List<BigDecimal> listOfContinentCountries = new ArrayList<>();
+    public List<Country> listOfCountries = new ArrayList<>();
+    public Country country;
 
     public Europe() {
-        listOfContinentCountries.add(poland.getQuantity());
-        listOfContinentCountries.add(germany.getQuantity());
-        listOfContinentCountries.add(france.getQuantity());
-        listOfContinentCountries.add(netherlands.getQuantity());
-        listOfContinentCountries.add(greece.getQuantity());
+        listOfCountries.add(country = new Country("Poland", new BigDecimal("42000000")));
+        listOfCountries.add(country = new Country("Germany", new BigDecimal("70000000")));
+        listOfCountries.add(country = new Country("France", new BigDecimal("60000000")));
+        listOfCountries.add(country = new Country("Netherlands", new BigDecimal("25000000")));
+        listOfCountries.add(country = new Country("Greece", new BigDecimal("35000000")));
     }
 
-    public List<BigDecimal> getListOfCountries() {
-        return listOfContinentCountries;
-    }
+    //232 000 000
+
+    @Override
+    public List<Country> getCountriesList() { return listOfCountries; }
 }

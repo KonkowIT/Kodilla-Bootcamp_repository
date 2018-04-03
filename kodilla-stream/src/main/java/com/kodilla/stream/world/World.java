@@ -5,27 +5,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class World {
-    //zawiera kolekcjię kontynetów
-    List<List> listOfContinents = new ArrayList<>();
 
-    private Europe europe = new Europe();
-    private Asia asia = new Asia();
-    private NorthAmerica northAmerica = new NorthAmerica();
+    List<GetCountries> listOfContinents = new ArrayList<>();
+    GetCountries getCountries;
+    Country country;
 
     public World(){
-        listOfContinents.add(europe.getListOfCountries());
-        listOfContinents.add(asia.getListOfCountries());
-        listOfContinents.add(northAmerica.getListOfCountries());
+        listOfContinents.add(new Europe());
+        listOfContinents.add(new Asia());
+        listOfContinents.add(new NorthAmerica());
     }
 
-    public List<List> getListOfContinents() {
-        return listOfContinents;
-    }
+    public List<GetCountries> getListOfContinents() { return listOfContinents; }
 
     public BigDecimal getWorldPeopleQuantity(){
         BigDecimal worldPeopleQuantity = getListOfContinents().stream()
-                .flatMap(worldQuantity -> worldQuantity.getListOfCountries().stream())
-                .map(getCountry -> getCountry.getQuantity())
+                .flatMap(worldQuantity -> getCountries.getCountriesList().stream())
+                .map(countryQuantity -> countryQuantity.getQuantity())
                 .reduce(BigDecimal.ZERO, (BigDecimal sum, BigDecimal current) -> sum = sum.add(current));
         return worldPeopleQuantity;
     }

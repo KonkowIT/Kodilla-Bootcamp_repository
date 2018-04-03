@@ -154,8 +154,8 @@ public class BoardTestSuite {
                 .map(d -> Period.between(d.getCreated(), today))
                 .count();
         double result = longTasks / inProgressTasks.size();
-        double countedResult = 16.667;
+        double countedResult = 16;
         //then
-        Assert.assertEquals(countedResult, result, 0.01);
+        Assert.assertEquals(countedResult, result, 0.1);
     }
 }
