@@ -6,24 +6,23 @@ import java.util.List;
 
 public class NorthAmerica {
 
-    USA usa = new USA();
-    Mexico mexico = new Mexico();
-    Canada canada = new Canada();
-    Jamaica jamaica = new Jamaica();
-    Cuba cuba = new Cuba();
+    Country usa = new Country(new BigDecimal("500000000"));
+    Country mexico = new Country(new BigDecimal("250000000"));
+    Country canada = new Country(new BigDecimal("300000000"));
+    Country jamaica = new Country(new BigDecimal("42000000"));
+    Country cuba = new Country(new BigDecimal("30000000"));
 
-    List<BigDecimal> listOfNorthAmericaCountries = new ArrayList<>();
+    List<BigDecimal> listOfContinentCountries = new ArrayList<>();
 
     public NorthAmerica(){
-        listOfNorthAmericaCountries.add(usa.getQuantity());
-        listOfNorthAmericaCountries.add(mexico.getQuantity());
-        listOfNorthAmericaCountries.add(canada.getQuantity());
-        listOfNorthAmericaCountries.add(jamaica.getQuantity());
-        listOfNorthAmericaCountries.add(cuba.getQuantity());
+        listOfContinentCountries.add(usa.getQuantity());
+        listOfContinentCountries.add(mexico.getQuantity());
+        listOfContinentCountries.add(canada.getQuantity());
+        listOfContinentCountries.add(jamaica.getQuantity());
+        listOfContinentCountries.add(cuba.getQuantity());
     }
 
     public List<BigDecimal> getListOfCountries() {
-        return listOfNorthAmericaCountries;
+        return listOfContinentCountries;
     }
-
 }

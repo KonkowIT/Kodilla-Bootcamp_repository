@@ -30,7 +30,7 @@ public class RpsRunner {
 
             //how many rounds question
             if (playGameAnswer == 'y') {
-                System.out.println("Do You wanna try harder version? [Y = yes / N = no]");
+                System.out.println("Do You wanna try harder version? [Y = yes / N = no]\n(Paper, Rock, Scissors, Lizard, Spock)");
                 Scanner scanHarderOrNormal = new Scanner(in);
                 char playHarderOrNormal = scanHarderOrNormal.next().trim().toLowerCase().charAt(0);
 

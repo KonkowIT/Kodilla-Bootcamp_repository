@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.time.Duration;
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -150,7 +151,7 @@ public class BoardTestSuite {
         long longTasks = project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
                 .flatMap(tl -> tl.getTasks().stream())
-                .map(d -> Duration.between(d.getCreated(), today).toDays())
+                .map(d -> Period.between(d.getCreated(), today))
                 .count();
         double result = longTasks / inProgressTasks.size();
         double countedResult = 16.667;

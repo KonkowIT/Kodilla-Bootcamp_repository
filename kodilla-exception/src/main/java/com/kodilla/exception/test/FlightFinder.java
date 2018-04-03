@@ -11,8 +11,8 @@ public class FlightFinder {
         airportMap.put("International Paris Airport", true);
         airportMap.put("Schipol Airport", true);
 
-        if (airportMap.containsKey(flight.getArrivalAirport()) && airportMap.containsKey(flight.getDepartureAirport())) {
-            if (airportMap.get(flight.getArrivalAirport()) && airportMap.get(flight.getDepartureAirport())) {
+        if (airportMap.containsKey(flight.getArrivalAirport())) {
+            if (airportMap.get(flight.getArrivalAirport())) {
                 System.out.println("This flight exists");
             } else {
                 System.out.println("This flight doesn't exists");

@@ -22,11 +22,11 @@ public class World {
         return listOfContinents;
     }
 
-    /*public BigDecimal getWorldPeopleQuantity(){
+    public BigDecimal getWorldPeopleQuantity(){
         BigDecimal worldPeopleQuantity = getListOfContinents().stream()
                 .flatMap(worldQuantity -> worldQuantity.getListOfCountries().stream())
                 .map(getCountry -> getCountry.getQuantity())
                 .reduce(BigDecimal.ZERO, (BigDecimal sum, BigDecimal current) -> sum = sum.add(current));
         return worldPeopleQuantity;
-    }*/
+    }
 }

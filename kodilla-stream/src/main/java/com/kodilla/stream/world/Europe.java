@@ -6,23 +6,23 @@ import java.util.List;
 
 public class Europe {
 
-    Poland poland = new Poland();
-    Germany germany = new Germany();
-    France france = new France();
-    Netherlands netherlands = new Netherlands();
-    Greece greece = new Greece();
+    Country poland = new Country(new BigDecimal("42000000"));
+    Country germany = new Country(new BigDecimal("70000000"));
+    Country france = new Country(new BigDecimal("60000000"));
+    Country netherlands = new Country(new BigDecimal("25000000"));
+    Country greece = new Country(new BigDecimal("35000000"));
 
-    List<BigDecimal> listOfEuropeCountries = new ArrayList<>();
+    List<BigDecimal> listOfContinentCountries = new ArrayList<>();
 
-    public Europe(){
-        listOfEuropeCountries.add(poland.getQuantity());
-        listOfEuropeCountries.add(germany.getQuantity());
-        listOfEuropeCountries.add(france.getQuantity());
-        listOfEuropeCountries.add(netherlands.getQuantity());
-        listOfEuropeCountries.add(greece.getQuantity());
+    public Europe() {
+        listOfContinentCountries.add(poland.getQuantity());
+        listOfContinentCountries.add(germany.getQuantity());
+        listOfContinentCountries.add(france.getQuantity());
+        listOfContinentCountries.add(netherlands.getQuantity());
+        listOfContinentCountries.add(greece.getQuantity());
     }
 
     public List<BigDecimal> getListOfCountries() {
-        return listOfEuropeCountries;
+        return listOfContinentCountries;
     }
 }
