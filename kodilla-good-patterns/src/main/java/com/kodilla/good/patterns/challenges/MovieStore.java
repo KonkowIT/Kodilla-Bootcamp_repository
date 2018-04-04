@@ -30,11 +30,10 @@ public class MovieStore {
     }
 
     /*public String getTitles() {
-        String titles = MovieStore.getMovies().stream()
-                .FlatMap(d -> d.books)
-                .map(c -> c.get())
-                .forEach(System.out::println);
-
-        return getTitles();
+        String titles = getMovies().entrySet().stream()
+                .map(c -> c.getValue())
+                .filter(a -> a)
+                .forEach(b -> System.out.println(b + "!"));
+        return titles;
     }*/
 }
