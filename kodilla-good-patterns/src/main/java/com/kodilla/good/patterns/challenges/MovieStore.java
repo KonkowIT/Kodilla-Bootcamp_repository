@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class MovieStore {
 
@@ -29,11 +30,15 @@ public class MovieStore {
         return booksTitlesWithTranslations;
     }
 
-    /*public String getTitles() {
-        String titles = getMovies().entrySet().stream()
-                .map(c -> c.getValue())
-                .filter(a -> a)
-                .forEach(b -> System.out.println(b + "!"));
+    public String getTitles() {
+        String titles = getMovies().values().stream()
+                .flatMap(a -> a.stream())
+                .collect(Collectors.joining("!"));
         return titles;
-    }*/
+    }
+
+    public static void main(String[] args) {
+        MovieStore movieStore = new MovieStore();
+        System.out.println(movieStore.getTitles());
+    }
 }

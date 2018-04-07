@@ -1,20 +1,31 @@
 package com.kodilla.good.patterns.challenges;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class ProductDatabase {
 
-    Map<Product, Boolean> availabilityOfProducts = new HashMap<>();
 
-    public boolean isAvailable(Product product){ return availabilityOfProducts.get(product); }
+    private static Map<Product, Boolean> availabilityOfProducts = new HashMap<>();
 
-    public void addToList(Product product, Boolean availability){
+    static {
+        availabilityOfProducts.put(new Product("White T-Shirt", 59), true);
+    }
+
+    public boolean isAvailable(Product product) {
+        if (availabilityOfProducts.containsKey(product)){
+            return availabilityOfProducts.get(product);
+        }
+        return false;
+    }
+
+    public void addToList(Product product, Boolean availability) {
         availabilityOfProducts.put(product, availability);
     }
 
-    public void deleteFromList(Product product){ availabilityOfProducts.remove(product); }
+    public void deleteFromList(Product product) {
+        availabilityOfProducts.remove(product);
+    }
 
     public String changeAvailability(Product product, boolean availability) {
         availabilityOfProducts.replace(product, availability);

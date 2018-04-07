@@ -6,9 +6,8 @@ import java.util.List;
 
 public class World {
 
-    List<Continent> listOfContinents = new ArrayList<>();
-    Country country;
-    Continent continent;
+    private List<Continent> listOfContinents = new ArrayList<>();
+
 
     public void addContinent(Continent continent){
         listOfContinents.add(continent);
@@ -17,8 +16,8 @@ public class World {
     public List<Continent> getListOfContinents() { return listOfContinents; }
 
     public BigDecimal getWorldPeopleQuantity(){
-        BigDecimal worldPeopleQuantity = getListOfContinents().stream()
-                .flatMap(worldQuantity -> continent.listOfCountries.stream())
+        BigDecimal worldPeopleQuantity = listOfContinents.stream()
+                .flatMap(continent -> continent.getListOfCountries().stream())
                 .map(countryQuantity -> countryQuantity.getQuantity())
                 .reduce(BigDecimal.ZERO, (BigDecimal sum, BigDecimal current) -> sum = sum.add(current));
         return worldPeopleQuantity;

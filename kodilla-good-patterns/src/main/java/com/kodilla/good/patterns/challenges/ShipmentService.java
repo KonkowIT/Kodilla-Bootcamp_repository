@@ -1,7 +1,11 @@
 package com.kodilla.good.patterns.challenges;
 
 public class ShipmentService {
-    SaleDatabase saleDatabase;
+    private SaleDatabase saleDatabase;
+
+    public ShipmentService(SaleDatabase saleDatabase) {
+        this.saleDatabase = saleDatabase;
+    }
 
     public void shippingProduct(User user){
         System.out.println("Sending " + saleDatabase.getFromDatabase(user.boughtProducts.get(user.boughtProducts.size()-1)) + " to " + user.getName() + " " +

@@ -136,7 +136,7 @@ public class BoardTestSuite {
                 .count();
 
         //Then
-        Assert.assertEquals(2, longTasks);
+        Assert.assertEquals(3, longTasks);
     }
 
     @Test
@@ -154,7 +154,7 @@ public class BoardTestSuite {
                 .map(d -> Period.between(d.getCreated(), today))
                 .count();
         double result = longTasks / inProgressTasks.size();
-        double countedResult = 16;
+        double countedResult = 3;
         //then
         Assert.assertEquals(countedResult, result, 0.1);
     }

@@ -6,6 +6,12 @@ public class SaleService {
     private SaleDatabase saleDatabase;
     private ShipmentService shipmentService;
 
+    public SaleService(ProductDatabase productDatabase, SaleDatabase saleDatabase, ShipmentService shipmentService) {
+        this.productDatabase = productDatabase;
+        this.saleDatabase = saleDatabase;
+        this.shipmentService = shipmentService;
+    }
+
     public void saleRequest(Product product, User user){
         if (productDatabase.isAvailable(product)){
             System.out.println("Product is available, processing to sale");
