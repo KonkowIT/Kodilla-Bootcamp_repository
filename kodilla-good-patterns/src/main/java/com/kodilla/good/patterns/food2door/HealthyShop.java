@@ -10,9 +10,9 @@ public class HealthyShop implements ProcessInterface {
         Courier courier = new Courier();
         Random idGenerator = new Random();
 
-        double price = productDatabaseSample.productDatabase.get("Tomato");
+        double price = productDatabaseSample.getProduct("Tomato");
         double wallet = konrad.getWallet();
-        int ID = idGenerator.nextInt();
+        int ID = idGenerator.nextInt(10000);
 
         if (wallet - price >= 0) {
             System.out.println("Payment accepted");
@@ -21,6 +21,6 @@ public class HealthyShop implements ProcessInterface {
             System.exit(0);
         }
 
-        System.out.println("Sending order no. " + ID + "to address: "+  courier.courierParcel(konrad));
+        System.out.println("Sending order no. " + ID + " to address: "+  courier.courierParcel(konrad));
     }
 }
