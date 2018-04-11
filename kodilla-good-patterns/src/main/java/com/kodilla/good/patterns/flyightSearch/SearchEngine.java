@@ -1,24 +1,25 @@
 package com.kodilla.good.patterns.flyightSearch;
 
-import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import static java.lang.System.in;
 import static java.lang.System.setOut;
 
 public class SearchEngine {
-    public void searching(String derpartureAirport, String arrivalAirport) {
+    public void searching(String departureAirport, String arrivalAirport) {
         FlightDatabase flightDatabase = new FlightDatabase();
         Random generator = new Random();
-
-        if(!derpartureAirport.equals(arrivalAirport)) {
+        System.out.println("Searching flight " + departureAirport.toUpperCase() + " -> " + arrivalAirport.toUpperCase());
+        if(!departureAirport.equals(arrivalAirport)) {
             Airport airportArrival = new Airport(arrivalAirport);
-            Airport airportDeparture = new Airport(derpartureAirport);
+            Airport airportDeparture = new Airport(departureAirport);
             Flight flightTested = new Flight(airportArrival, airportDeparture);
-            Flight flights = flightDatabase.flightSet.contains(flightTested).stream()
-                    .anyMatch(setOut(Flight));
+            Flight flights = flightDatabase.flightSet.stream()
+                    .filter(a -> a.equals(flightTested))
+                    .forEach();
             //otrzymujemy jeden wynik (lot)
 
             if (flights == null) {
@@ -51,6 +52,6 @@ public class SearchEngine {
         }
         System.out.println("Departure airport must be different than arrival airport!");
 
-    }
+    */}
 }
 
