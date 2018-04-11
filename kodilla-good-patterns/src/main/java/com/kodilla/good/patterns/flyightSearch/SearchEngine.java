@@ -6,19 +6,22 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 import static java.lang.System.in;
+import static java.lang.System.setOut;
 
 public class SearchEngine {
     public void searching(String derpartureAirport, String arrivalAirport) {
         FlightDatabase flightDatabase = new FlightDatabase();
         Random generator = new Random();
 
-        if(derpartureAirport != arrivalAirport) {
-            List<String> flight = flightDatabase.getFlightMap().containsKey(derpartureAirport).stream()
-                    .filter(flightMap -> flightMap.containsValue(arrivalAirport))
-                    .collect(Collectors.toList());
-            //otrzymujemy listę rekordów mapy
+        if(!derpartureAirport.equals(arrivalAirport)) {
+            Airport airportArrival = new Airport(arrivalAirport);
+            Airport airportDeparture = new Airport(derpartureAirport);
+            Flight flightTested = new Flight(airportArrival, airportDeparture);
+            Flight flights = flightDatabase.flightSet.contains(flightTested).stream()
+                    .anyMatch(setOut(Flight));
+            //otrzymujemy jeden wynik (lot)
 
-            if (flight.size() == 0) {
+            if (flights == null) {
                 System.out.println("Searched flight doesn't exist. Do You want to search connecting flight?");
                 Scanner yOrN = new Scanner(in);
                 char answerScan = yOrN.next().trim().toLowerCase().charAt(0);
@@ -30,6 +33,7 @@ public class SearchEngine {
 
                 if (answerScan == 'y') {
                     //wyszukiwanie lotów z przesiadką
+
                 } else {
                     System.out.println("Ok :( Bye");
                     System.exit(0);
