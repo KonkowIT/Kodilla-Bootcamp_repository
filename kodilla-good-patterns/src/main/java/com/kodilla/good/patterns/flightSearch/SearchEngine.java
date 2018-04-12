@@ -10,7 +10,10 @@ public class SearchEngine {
         FlightDatabase flightDatabase = new FlightDatabase();
         Random generator = new Random();
         System.out.println("Searching flight " + departureAirport.toUpperCase() + " -> " + arrivalAirport.toUpperCase());
-        if(!departureAirport.equals(arrivalAirport)) {
+        if(departureAirport.equals(arrivalAirport)) {
+            System.out.println("Departure airport must be different than arrival airport!");
+            System.exit(0);
+        } else {
             Airport airportArrival = new Airport(arrivalAirport);
             Airport airportDeparture = new Airport(departureAirport);
             Flight flightTested = new Flight(airportArrival, airportDeparture);
@@ -22,14 +25,14 @@ public class SearchEngine {
                 System.out.println("Searched flight doesn't exist. Do You want to search connecting flight?");
                 Scanner yOrN = new Scanner(in);
                 char answerScan = yOrN.next().trim().toLowerCase().charAt(0);
-                while(answerScan != 'y' && answerScan != 'n'){
+                while (answerScan != 'y' && answerScan != 'n') {
                     System.out.println("You need to enter your answer");
                     Scanner yOrN2 = new Scanner(in);
                     answerScan = yOrN2.next().trim().toLowerCase().charAt(0);
                 }
 
                 if (answerScan == 'y') {
-                    Map<Flight,Flight> connectingFlights = new HashMap<>();
+                    Map<Flight, Flight> connectingFlights = new HashMap<>();
                     List<Flight> connectingFlightsDep = flightDatabase.flightSet.stream()
                             .filter(a -> (a.getDepartureAirport().getTown()).equals(departureAirport))
                             .collect(Collectors.toList());
@@ -41,7 +44,7 @@ public class SearchEngine {
                     for (int n = 0; n < connectingFlightsDep.size(); n++) {
                         for (int i = 0; i < connectingFlightsArr.size() || i < connectingFlightsDep.size(); i++) {
                             if (connectingFlightsDep.get(n).getDepartureAirport()
-                                    .equals(connectingFlightsArr.get(i).getArrivalAirport())){
+                                    .equals(connectingFlightsArr.get(i).getArrivalAirport())) {
                                 connectingFlights.put(connectingFlightsDep.get(n), connectingFlightsArr.get(i));
                             }
                         }
@@ -73,8 +76,6 @@ public class SearchEngine {
                 System.out.println("Searched flight departure time: " + time + "flight number: " + flightNumber);
             }
         }
-        System.out.println("Departure airport must be different than arrival airport!");
-
     }
 }
 

@@ -15,6 +15,6 @@ public class Search {
         Scanner arrival = new Scanner(in);
         String arrivalAirport = arrival.next().toLowerCase();
         searchEngine.searching(departureAirport, arrivalAirport);
-        //wyświetlenie lotu
+
     }
 }
