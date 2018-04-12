@@ -60,6 +60,7 @@ public class SearchEngine {
                                     + connectingFlights.get(a).getArrivalAirport());
                         }
                     }
+                    System.exit(0);
 
                 } else {
                     System.out.println("Ok :( Bye");
@@ -74,6 +75,7 @@ public class SearchEngine {
                 String time = hoursDecimal + hoursUnits + ":" + minutesDecimal + minutesUnits;
                 int flightNumber = generator.nextInt(100000);
                 System.out.println("Searched flight departure time: " + time + "flight number: " + flightNumber);
+                System.exit(0);
             }
         }
     }
