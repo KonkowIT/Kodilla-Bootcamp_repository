@@ -1,12 +1,9 @@
-package com.kodilla.good.patterns.flyightSearch;
+package com.kodilla.good.patterns.flightSearch;
 
-import java.util.Random;
-import java.util.Scanner;
-import java.util.stream.Collector;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static java.lang.System.in;
-import static java.lang.System.setOut;
 
 public class SearchEngine {
     public void searching(String departureAirport, String arrivalAirport) {
@@ -17,12 +14,11 @@ public class SearchEngine {
             Airport airportArrival = new Airport(arrivalAirport);
             Airport airportDeparture = new Airport(departureAirport);
             Flight flightTested = new Flight(airportArrival, airportDeparture);
-            Flight flights = flightDatabase.flightSet.stream()
+            List<Flight> flights = flightDatabase.flightSet.stream()
                     .filter(a -> a.equals(flightTested))
-                    .forEach();
-            //otrzymujemy jeden wynik (lot)
+                    .collect(Collectors.toList());
 
-            if (flights == null) {
+            if (flights.size() == 0) {
                 System.out.println("Searched flight doesn't exist. Do You want to search connecting flight?");
                 Scanner yOrN = new Scanner(in);
                 char answerScan = yOrN.next().trim().toLowerCase().charAt(0);
@@ -33,7 +29,34 @@ public class SearchEngine {
                 }
 
                 if (answerScan == 'y') {
-                    //wyszukiwanie lotów z przesiadką
+                    Map<Flight,Flight> connectingFlights = new HashMap<>();
+                    List<Flight> connectingFlightsDep = flightDatabase.flightSet.stream()
+                            .filter(a -> (a.getDepartureAirport().getTown()).equals(departureAirport))
+                            .collect(Collectors.toList());
+
+                    List<Flight> connectingFlightsArr = flightDatabase.flightSet.stream()
+                            .filter(a -> (a.getDepartureAirport()).equals(departureAirport))
+                            .collect(Collectors.toList());
+
+                    for (int n = 0; n < connectingFlightsDep.size(); n++) {
+                        for (int i = 0; i < connectingFlightsArr.size() || i < connectingFlightsDep.size(); i++) {
+                            if (connectingFlightsDep.get(n).getDepartureAirport()
+                                    .equals(connectingFlightsArr.get(i).getArrivalAirport())){
+                                connectingFlights.put(connectingFlightsDep.get(n), connectingFlightsArr.get(i));
+                            }
+                        }
+                    }
+
+                    System.out.println("List of flights with connecting:");
+                    for (int a = 0; a < connectingFlights.size(); a++) {
+                        Set<Flight> keys = connectingFlights.keySet();
+                        for (Flight key : keys) {
+                            System.out.println(a + 1 + " flight: first flight: " + key.getDepartureAirport() + " -> "
+                                    + key.getArrivalAirport() + ", second flight: "
+                                    + connectingFlights.get(a).getDepartureAirport() + " ->"
+                                    + connectingFlights.get(a).getArrivalAirport());
+                        }
+                    }
 
                 } else {
                     System.out.println("Ok :( Bye");
@@ -52,6 +75,6 @@ public class SearchEngine {
         }
         System.out.println("Departure airport must be different than arrival airport!");
 
-    */}
+    }
 }
 

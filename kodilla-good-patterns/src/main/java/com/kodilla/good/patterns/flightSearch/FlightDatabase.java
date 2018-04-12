@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.flyightSearch;
+package com.kodilla.good.patterns.flightSearch;
 
 import java.util.HashSet;
 import java.util.Set;
