@@ -4,9 +4,19 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class Board {
-    private TaskList toDoList;
-    private TaskList inProgressList;
-    private TaskList doneList;
+    TaskList toDoList;
+    TaskList inProgressList;
+    TaskList doneList;
 
+    public TaskList getToDoList() {
+        return toDoList;
+    }
 
+    public TaskList getInProgressList() {
+        return inProgressList;
+    }
+
+    public TaskList getDoneList() {
+        return doneList;
+    }
 }
