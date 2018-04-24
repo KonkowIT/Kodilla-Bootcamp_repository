@@ -4,9 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TaskList {
-    List<String> tasks;
+    private List<String> tasks;
 
-    public TaskList(List<String> tasks) {
-        this.tasks = tasks;
+    public TaskList() {
+        this.tasks = new ArrayList<>();
+    }
+
+    public void addToTaskList(String task){
+        this.tasks.add(task);
+    }
+
+    public List<String> getTasks() {
+        return tasks;
     }
 }

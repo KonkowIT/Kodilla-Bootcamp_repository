@@ -12,7 +12,7 @@ public class TaskFactory {
             case PAINTING:
                 return new PaintingTask("Painting the wall", "yellow", "wall");
             case DRIVING:
-                return new DrivingTask("Driving home", "home", "yes");
+                return new DrivingTask("Driving home", "home", false);
                 default:
                     return null;
         }

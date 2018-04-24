@@ -1,18 +1,22 @@
 package com.kodilla.patterns.factory.tasks;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
+
 public class DrivingTask implements Task{
     final String taskName;
     final String where;
-    final String using;
+    private Boolean using;
 
-    public DrivingTask(String taskName, String where, String using) {
+    public DrivingTask(String taskName, String where, Boolean using) {
         this.taskName = taskName;
         this.where = where;
         this.using = using;
+
     }
 
     @Override
     public String executeTask() {
+        using = true;
         return "Driving to " + where;
     }
 
@@ -23,10 +27,7 @@ public class DrivingTask implements Task{
 
     @Override
     public boolean isTaskExecuted() {
-        if (using.equals("yes")) {
-            return true;
-        } else {
-            return false;
-        }
+        executeTask();
+        return using;
     }
 }
