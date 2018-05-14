@@ -14,10 +14,10 @@ public class LibraryTestSuite {
         Book book3 = new Book("ABC", "Ewa", LocalDate.of(1983, 1, 21));
         Book book4 = new Book("CBA", "Daniel", LocalDate.of(1974, 11, 28));
         Library library = new Library("Main library");
-        library.books.add(book1);
-        library.books.add(book2);
-        library.books.add(book3);
-        library.books.add(book4);
+        library.getBooks().add(book1);
+        library.getBooks().add(book2);
+        library.getBooks().add(book3);
+        library.getBooks().add(book4);
 
         //shallow copy
         Library cloneLibrary = null;
@@ -40,8 +40,8 @@ public class LibraryTestSuite {
         System.out.println(library);
         System.out.println(cloneLibrary);
         System.out.println(deepCloneLibrary);
-        Assert.assertEquals(4, library.books.size());
-        Assert.assertEquals(4, cloneLibrary.books.size());
-        Assert.assertEquals(4, deepCloneLibrary.books.size());
+        Assert.assertEquals(4, library.getBooks().size());
+        Assert.assertEquals(4, cloneLibrary.getBooks().size());
+        Assert.assertEquals(4, deepCloneLibrary.getBooks().size());
     }
 }

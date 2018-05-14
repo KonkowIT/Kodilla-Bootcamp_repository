@@ -1,13 +1,13 @@
 package com.kodilla.patterns.prototype.library;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
+import com.kodilla.patterns.prototype.Prototype;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class Library {
-    final String name;
-    final Set<Book> books = new HashSet<>();
+public class Library extends Prototype {
+    private String name;
+    private Set<Book> books = new HashSet<>();
 
     public Library(final String name) {
         this.name = name;

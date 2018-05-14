@@ -3,9 +3,10 @@ package com.kodilla.patterns.factory.tasks;
 import com.kodilla.patterns.prototype.TasksList;
 
 public class PaintingTask implements Task {
-    final String taskName;
-    final String color;
-    final String whatToPaint;
+    private final String taskName;
+    private final String color;
+    private final String whatToPaint;
+    private boolean isExecuted;
 
     public PaintingTask(String taskName, String color, String whatToPaint) {
         this.taskName = taskName;
@@ -15,6 +16,7 @@ public class PaintingTask implements Task {
 
     @Override
     public String executeTask() {
+        isExecuted = true;
         return "Painting " + whatToPaint + " on color " + color;
     }
 
@@ -25,10 +27,6 @@ public class PaintingTask implements Task {
 
     @Override
     public boolean isTaskExecuted() {
-        if (color.equals("black")) {
-            return false;
-        } else {
-            return true;
-        }
+        return isExecuted;
     }
 }
