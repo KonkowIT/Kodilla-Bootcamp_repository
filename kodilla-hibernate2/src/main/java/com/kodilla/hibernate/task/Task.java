@@ -80,4 +80,7 @@ public class Task {
         this.taskFinancialDetails = taskFinancialDetails;
     }
 
+    public void setTaskList(TaskList taskList) {
+        this.taskList = taskList;
+    }
 }

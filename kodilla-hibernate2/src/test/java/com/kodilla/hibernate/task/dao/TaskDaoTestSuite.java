@@ -3,7 +3,6 @@ package com.kodilla.hibernate.task.dao;
 import com.kodilla.hibernate.task.Task;
 import com.kodilla.hibernate.task.TaskFinancialDetails;
 import com.kodilla.hibernate.tasklist.TaskList;
-import com.kodilla.hibernate.tasklist.TaskListDao;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,7 +19,6 @@ import java.util.Optional;
 public class TaskDaoTestSuite {
     @Autowired
     private TaskDao taskDao;
-    private TaskListDao taskListDao;
     private static final String DESCRIPTION = "Test: Learn Hibernate";
 
     @Test
@@ -73,26 +71,5 @@ public class TaskDaoTestSuite {
 
         //CleanUp
         taskDao.deleteById(id);
-    }
-
-    @Test
-    public void testTaskListDaoSaveWithTasks(){
-        //given
-        Task task = new Task("Test: Learn Hibernate", 14);
-        Task task2 = new Task("Test: Write some entitites", 3);
-        TaskFinancialDetails tfd = new TaskFinancialDetails(new BigDecimal(20), false);
-        TaskFinancialDetails tfd2 = new TaskFinancialDetails(new BigDecimal(10), false);
-        task.setTaskFinancialDetails(tfd);
-        task.setTaskFinancialDetails(tfd2);
-        TaskList taskList = new TaskList("LISTNAME", "ToDo tasks");
-        taskList.getTasks().add(task);
-        int id = taskList.getId();
-
-        //when
-        taskListDao.save(taskList);
-
-        //then
-        Assert.assertNotEquals(0, id);
-
     }
 }
