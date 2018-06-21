@@ -1,9 +1,12 @@
 package com.kodilla.hibernate.invoice.dao;
 
+import com.kodilla.hibernate.invoice.Dao.InvoiceDao;
 import com.kodilla.hibernate.invoice.Dao.ProductDao;
 import com.kodilla.hibernate.invoice.Invoice;
 import com.kodilla.hibernate.invoice.Item;
 import com.kodilla.hibernate.invoice.Product;
+import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +15,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
 
+@Ignore
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class InvoiceDaoTestSuite {
     @Autowired
-    ProductDao productDao;
+    InvoiceDao invoiceDao;
 
     @Test
     public void testInvoiceDaoSave(){
@@ -40,5 +44,20 @@ public class InvoiceDaoTestSuite {
         invoice.getItems().add(item3);
         invoice.getItems().add(item4);
         invoice.getItems().add(item5);
+
+        item1.setInvoice(invoice);
+        item2.setInvoice(invoice);
+        item3.setInvoice(invoice);
+        item4.setInvoice(invoice);
+        item5.setInvoice(invoice);
+
+        //when
+        Invoice saved = invoiceDao.save(invoice);
+
+        //then
+        Assert.assertNotEquals(0, saved.getId());
+
+        //CleanUp
+        invoiceDao.deleteAll();
     }
 }

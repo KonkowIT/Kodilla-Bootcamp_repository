@@ -4,7 +4,11 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
-
+@NamedNativeQuery(
+        name = "Employee.findEmployeeByLastname",
+        query = "SELECT * FROM EMPLOYEES WHERE LASTNAME = :LASTNAME",
+        resultClass = Employee.class
+)
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {

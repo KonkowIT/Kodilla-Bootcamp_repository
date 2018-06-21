@@ -1,7 +1,10 @@
 package com.kodilla.hibernate.invoice;
 
+import jdk.nashorn.internal.ir.annotations.Ignore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -9,8 +12,7 @@ import java.util.List;
 public class Invoice {
     private int id;
     private String number;
-    private List<Item> items;
-    private Item item;
+    private List<Item> items = new ArrayList<>();
 
     public Invoice() {
     }
@@ -27,21 +29,16 @@ public class Invoice {
         return id;
     }
 
-    @NotNull
     @Column(name = "NUMBERS")
     public String getNumber() {
         return number;
     }
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "INVOICE_OF_PRODUCTS",
-            joinColumns = {@JoinColumn(name = "ID", referencedColumnName = "ID")},
-            inverseJoinColumns = {@JoinColumn(name = "NUMBERS", referencedColumnName = "NUMBERS"),
-                                  @JoinColumn(name = "ITEMS", referencedColumnName = "ITEMS")}
-    )
+    @OneToMany(cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,
+            targetEntity = Item.class,
+            mappedBy = "invoice")
     public List<Item> getItems() {
-        getItems().add(item);
         return items;
     }
 

@@ -1,5 +1,7 @@
 package com.kodilla.hibernate.invoice;
 
+import jdk.nashorn.internal.ir.annotations.Ignore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
@@ -12,6 +14,7 @@ public class Item {
     private BigDecimal price;
     private int quantity;
     private BigDecimal value;
+    private Invoice invoice;
 
     public Item() {
     }
@@ -30,25 +33,34 @@ public class Item {
         return id;
     }
 
-    @NotNull
-    @Column(name = "PRODUCT")
+    @ManyToOne(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    @JoinColumn(name = "INVOICE_ID")
+    public Invoice getInvoice() {
+        return invoice;
+    }
+
+    @ManyToOne(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    @JoinColumn(name = "PRODUCT_ID")
     public Product getProduct() {
         return product;
     }
 
-    @NotNull
     @Column(name = "PRICE")
     public BigDecimal getPrice() {
         return price;
     }
 
-    @NotNull
     @Column(name = "QUANTITY")
     public int getQuantity() {
         return quantity;
     }
 
-    @NotNull
     @Column(name = "VALUE")
     public BigDecimal getValue() {
         this.value = getPrice().multiply(new BigDecimal(getQuantity()));
@@ -57,6 +69,10 @@ public class Item {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public void setInvoice(Invoice invoice) {
+        this.invoice = invoice;
     }
 
     public void setProduct(Product product) {
