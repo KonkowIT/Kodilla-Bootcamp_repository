@@ -1,5 +1,7 @@
 package com.kodilla.hibernate.manytomany;
 
+import org.springframework.stereotype.Service;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
@@ -7,10 +9,11 @@ import java.util.List;
 
 @NamedQuery(
         name = "Company.searchByThreeLetters",
-        query = "FROM Company WHERE SUBSTRING(COMPANY_NAME, 1, 3) = :NAME"
+        query = "FROM Company WHERE COMPANY_NAME LIKE :ARG"
 )
 @Entity
 @Table(name = "COMPANIES")
+@Service
 public class Company {
     private int id;
     private String name;
