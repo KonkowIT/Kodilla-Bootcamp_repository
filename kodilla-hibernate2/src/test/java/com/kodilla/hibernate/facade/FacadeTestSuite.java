@@ -16,7 +16,7 @@ import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class facadeTestSuite {
+public class FacadeTestSuite {
     @Autowired
     private ManyToManyFacade manyToManyFacade;
     @Autowired
