@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 @NamedNativeQuery(
         name = "Employee.findEmployeeByLastname",
-        query = "SELECT * FROM EMPLOYEES WHERE LASTNAME LIKE :ARG",
+        query = "SELECT * FROM Employees WHERE lastname LIKE CONCAT('%', :LASTNAME, '%')",
         resultClass = Employee.class
 )
 @Entity

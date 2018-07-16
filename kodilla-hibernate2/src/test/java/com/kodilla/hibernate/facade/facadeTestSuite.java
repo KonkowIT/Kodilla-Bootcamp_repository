@@ -35,7 +35,7 @@ public class facadeTestSuite {
         companyDao.save(softwareMachine);
         companyDao.save(dataMaesters);
         companyDao.save(greyMatter);
-        List<Company> result = manyToManyFacade.searchCompany("%er%");
+        List<Company> result = manyToManyFacade.searchCompany("er");
 
         //then
         Assert.assertEquals(2, result.size());
@@ -52,7 +52,7 @@ public class facadeTestSuite {
         employeeDao.save(johnSmith);
         employeeDao.save(stephanieClarckson);
         employeeDao.save(lindaKovalsky);
-        List<Employee> result = manyToManyFacade.searchEmployee("%a%");
+        List<Employee> result = manyToManyFacade.searchEmployee("a");
 
         //then
         Assert.assertEquals(2, result.size());

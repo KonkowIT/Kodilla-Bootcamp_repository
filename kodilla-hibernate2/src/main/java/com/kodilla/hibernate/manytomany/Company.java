@@ -9,7 +9,12 @@ import java.util.List;
 
 @NamedQuery(
         name = "Company.searchByThreeLetters",
-        query = "FROM Company WHERE COMPANY_NAME LIKE :ARG"
+        query = "FROM Company WHERE (name, 1, 3) = :NAME"
+)
+@NamedNativeQuery(
+        name = "Company.searchByCompanyName",
+        query = "SELECT * FROM Companies WHERE company_name LIKE CONCAT('%', :NAME, '%')",
+        resultClass = Company.class
 )
 @Entity
 @Table(name = "COMPANIES")
