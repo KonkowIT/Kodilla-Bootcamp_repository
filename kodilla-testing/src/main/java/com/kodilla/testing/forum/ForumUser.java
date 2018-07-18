@@ -13,7 +13,7 @@ public class ForumUser{
     private List<ForumComment> comments = new LinkedList<ForumComment>();
 
     public ForumUser(String name, String realName) {
-        //name visible at forum
+        //name visible at com.kodilla.patterns2.forum
         this.name = name;
         //real name
         this.realName = realName;
