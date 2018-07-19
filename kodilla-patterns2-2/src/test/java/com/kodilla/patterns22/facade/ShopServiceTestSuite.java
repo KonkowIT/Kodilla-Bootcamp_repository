@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.math.BigDecimal;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(classes = {ShopService.class, OrderFacade.class})
 public class ShopServiceTestSuite {
     @Autowired
     private ShopService shopService;
