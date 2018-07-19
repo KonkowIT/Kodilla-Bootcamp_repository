@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class Watcher {
     private static final Logger LOGGER = LoggerFactory.getLogger(Watcher.class);
 
-    @Before("execution(* com.kodilla.patterns21.aop.calculator.Calculator.factorial(..))")
+    @Before("execution(* com.kodilla.patterns22.aop.calculator.Calculator.factorial(..))")
     public void logEvent() {
         LOGGER.info("Logging the event");
     }
